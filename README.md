@@ -9,7 +9,7 @@ Este es el repositorio del grupo 9, cuyos integrantes son:
 * Alberto Oñate  - 202173103-2
 * **Tutor**: Paula Castillo
 
-## Wiki  
+## Wiki [Link Title](Wiki)
 
 ## Videos  
 
