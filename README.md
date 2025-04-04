@@ -9,7 +9,7 @@ Este es el repositorio del grupo 9, cuyos integrantes son:
 * Alberto Oñate  - 202173103-2
 * **Tutor**: Paula Castillo
 
-## [Wiki](Wiki)
+## [Wiki](https://gitlab.com/benjax79/grupo9-2025-proyinf/-/wikis/home)
 
 ## Videos  
 
