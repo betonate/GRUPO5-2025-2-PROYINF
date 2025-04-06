@@ -11,6 +11,8 @@ Este es el repositorio del grupo 9, cuyos integrantes son:
 
 ## [Wiki](https://gitlab.com/benjax79/grupo9-2025-proyinf/-/wikis/home)
 
-## Videos  
+## Videos
+
+[Video](https://youtu.be/s9JVPyjQAQs) de la **presentación del cliente**.
 
 ## Aspectos técnicos relevantes  
