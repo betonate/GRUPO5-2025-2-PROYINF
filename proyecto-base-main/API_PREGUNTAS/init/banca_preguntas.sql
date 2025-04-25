@@ -1,0 +1,7 @@
+USE BD09_PREGUNTAS;
+
+CREATE TABLE IF NOT EXISTS Preguntas (
+    Materia VARCHAR(100) PRIMARY KEY,
+    EjeTematico VARCHAR(100),
+    Dificultad INT
+);
