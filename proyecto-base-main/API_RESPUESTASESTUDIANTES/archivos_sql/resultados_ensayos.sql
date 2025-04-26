@@ -1,4 +1,4 @@
-USE api_respuestasestudiantes-api_respuestasestudiantes-1;
+USE BD09_RESPUESTASESTUDIANTES;
 
 CREATE TABLE IF NOT EXISTS Ensayo (
     id_ensayo INT PRIMARY KEY,
