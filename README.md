@@ -110,3 +110,43 @@ GET: localhost:8081/createTable
 Además, pueden poner en su navegador ```localhost:8080``` y/o ```localhost:8081```, y les debería salir el siguiente mensaje:
 
 ![Ejemplo3](img/navegador.png)
+
+## Crear Tablas
+
+Una vez ya creadas las bases de datos, hay que crear las tablas necesarias, que se encuentran en los archivos .sql, siguiendo las instruccciones a continuacion:
+
+1. Abrir Visual Studio Code como administrador.
+2. Dirigirse a la carpeta de nuestro proyecto "proyecto-base-main".
+3. Abrir la terminal y copiar los archivos .sql al contenedor principal de docker, ingresando los siguientes comandos:
+
+```
+docker cp API_PREGUNTAS/archivos_sql/banca_preguntas.sql proyecto-base-main-mysql-1:/banca_preguntas.sql
+
+docker cp API_RESPUESTASESTUDIANTES/archivos_sql/resultados_ensayos.sql proyecto-base-main-mysql-1:/resultados_ensayos.sql
+```
+4. Acceder a la terminal de docker con el siguiente comando:
+
+```
+docker exec -it proyecto-base-main-mysql-1 mysql -uroot -p
+```
+Seguido de esto, se debe ingresar la contraseña de la base de datos, osea "password".
+
+5. Se ejecutan los archivos .sql copiados al contendor de docker para que se creen las tablas, con los siguientes comandos (todo desde la consola de docker):
+
+```
+source /banca_preguntas.sql;
+source /resultados_ensayos.sql;
+```
+6. Para verificar la creacion de las tablas, desde la misma terminal de docker se puede ingresar los comandos:
+
+```
+USE BD09_PREGUNTAS;
+SHOW TABLES;
+```
+
+Y para la base de datos de respuestas:
+
+```
+USE BD09_RESPUESTASESTUDIANTES;
+SHOW TABLES;
+```
