@@ -155,3 +155,25 @@ Y para la base de datos de respuestas:
 USE BD09_RESPUESTASESTUDIANTES;
 SHOW TABLES;
 ```
+
+## Configurar el Frontend (React)
+
+1. Abrir Visual Studio Code como administrador.
+2. Dirigirse a la carpeta "poep" que esta adentro de React.
+2. instalar las dependencias
+
+```
+npm install
+```
+3. Iniciar la Aplicación
+```
+npm start
+```
+4. Abrir en el navegador:
+```
+http://localhost:3000/teacher
+```
+Aca se pueden ver 2 botones:
+
+"Banca de Preguntas": Para crear/administrar preguntas.
+"Crear Ensayos": Para generar nuevos exámenes.
