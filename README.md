@@ -159,8 +159,8 @@ SHOW TABLES;
 ## Configurar el Frontend (React)
 
 1. Abrir Visual Studio Code como administrador.
-2. Dirigirse a la carpeta "poep" que esta adentro de React.
-2. instalar las dependencias
+2. Dirigirse a la carpeta "poep" que esta adentro de la carpeta React.
+2. Instalar las dependencias
 
 ```
 npm install
@@ -176,4 +176,5 @@ http://localhost:3000/teacher
 Aca se pueden ver 2 botones:
 
 "Banca de Preguntas": Para crear/administrar preguntas.
+
 "Crear Ensayos": Para generar nuevos exámenes.
