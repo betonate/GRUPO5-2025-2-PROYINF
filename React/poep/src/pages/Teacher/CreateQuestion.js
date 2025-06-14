@@ -1,31 +1,143 @@
 import React, { useState } from 'react';
-import { questionBank } from '../../data/questionBank';
+import { api } from '../../services/api';
 
 export default function CreateQuestion() {
-  const [question, setQuestion] = useState('');
-  const [subject, setSubject] = useState('Matemática');
+  const [formData, setFormData] = useState({
+    enunciado: '',
+    opcion_a: '',
+    opcion_b: '',
+    opcion_c: '',
+    opcion_d: '',
+    opcion_e: '',
+    respuesta_correcta: '',
+    materia: 'Matemáticas',
+    eje_tematico: '',
+    dificultad: 1,
+    foto_url: ''
+  });
   const [added, setAdded] = useState(false);
 
-  const handleAdd = () => {
-    if (question.trim() === '') return;
-    questionBank.push({ id: questionBank.length + 1, question, subject });
-    setQuestion('');
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: name === 'dificultad' ? parseInt(value) : value
+    }));
+  };
+
+  const handleAdd = async () => {
+    try {
+      await api.createQuestion(formData);
+      setFormData({
+        enunciado: '',
+        opcion_a: '',
+        opcion_b: '',
+        opcion_c: '',
+        opcion_d: '',
+        opcion_e: '',
+        respuesta_correcta: '',
+        materia: 'Matemáticas',
+        eje_tematico: '',
+        dificultad: 1,
+        foto_url: ''
+      });
+      setAdded(true);
+      setTimeout(() => setAdded(false), 2000);
+    } catch (error) {
+      console.error('Error al crear pregunta:', error);
+      alert('Error al crear pregunta');
+    }
   };
 
   return (
-    <div>
+    <div style={{ padding: '1rem' }}>
       <h3>Crear Nueva Pregunta</h3>
-      <input
-        type="text"
-        placeholder="Escribe la pregunta"
-        value={question}
-        onChange={e => setQuestion(e.target.value)}
-        style={{ width: '60%' }}
-      />
-      <button onClick={handleAdd}>Agregar</button>
-      {added && <p style={{ color: 'green' }}>Pregunta agregada al banco</p>}
+      
+      <div style={{ display: 'grid', gap: '1rem', maxWidth: '600px' }}>
+        <div>
+          <label>Materia:</label>
+          <select 
+            name="materia"
+            value={formData.materia}
+            onChange={handleChange}
+            style={{ width: '100%', padding: '8px' }}
+          >
+            <option value="Matemáticas">Matemáticas</option>
+            <option value="Lenguaje">Lenguaje</option>
+            <option value="Ciencias">Ciencias</option>
+            <option value="Historia">Historia</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Enunciado:</label>
+          <textarea
+            name="enunciado"
+            value={formData.enunciado}
+            onChange={handleChange}
+            style={{ width: '100%', padding: '8px', minHeight: '80px' }}
+          />
+        </div>
+
+        {['a', 'b', 'c', 'd', 'e'].map((opcion) => (
+          <div key={opcion}>
+            <label>Opción {opcion.toUpperCase()}:</label>
+            <input
+              type="text"
+              name={`opcion_${opcion}`}
+              value={formData[`opcion_${opcion}`]}
+              onChange={handleChange}
+              style={{ width: '100%', padding: '8px' }}
+            />
+          </div>
+        ))}
+
+        <div>
+          <label>Respuesta Correcta:</label>
+          <select
+            name="respuesta_correcta"
+            value={formData.respuesta_correcta}
+            onChange={handleChange}
+            style={{ width: '100%', padding: '8px' }}
+          >
+            <option value="">Seleccione...</option>
+            {['a', 'b', 'c', 'd', 'e'].map((opcion) => (
+              <option key={opcion} value={opcion.toUpperCase()}>
+                Opción {opcion.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label>Dificultad (1-5):</label>
+          <input
+            type="number"
+            name="dificultad"
+            min="1"
+            max="5"
+            value={formData.dificultad}
+            onChange={handleChange}
+            style={{ width: '100%', padding: '8px' }}
+          />
+        </div>
+
+        <button 
+          onClick={handleAdd}
+          style={{
+            padding: '10px 15px',
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Crear Pregunta
+        </button>
+
+        {added && <p style={{ color: 'green' }}>✅ Pregunta creada exitosamente</p>}
+      </div>
     </div>
   );
 }
