@@ -12,5 +12,6 @@ CREATE TABLE IF NOT EXISTS Resultado (
     Estudiante VARCHAR(100),
     Puntaje INT,
     Fecha DATE,
+    tiempo_resolucion INT;
     FOREIGN KEY (id_ensayo) REFERENCES Ensayo(id_ensayo)
 );

@@ -41,6 +41,8 @@ La solución a desarrollar debe seguir los siguientes lineamientos (imagen refer
 
 ![Modelo](img/diagrama2.png)
 
+* CADA VEZ QUE SE HAGA UNA ACTUALIZACIÓN, ES RECOMENDABLE BORRAR E INSTALAR, YA SEA LAS BD O LOS CONTENEDORES DE DOCKER CON LAS INSTRUCCIONES DE A CONTINUACIÓN.
+
 
 ## Levantando el proyecto
 Iniciaremos levantando la imagen de mysql en docker.
@@ -56,6 +58,12 @@ docker compose up --build
 6. Luego de pasado unos segundos, abra Docker y verifique si el contenedor se ha cargado completamente.
 
 Una vez ya realizado la configuración de sql en nuestro sistema, ya podemos crear las bases de datos.
+
+En caso de querer borrar el contenedor para reinstalar, se puede borrar directamente por Docker Compose, o directamente en la terminal con el siguiente comando:
+
+```
+docker-compose down
+```
 
 ### Configuración del Proyecto
 #### Bases de Datos
@@ -76,43 +84,49 @@ Luego de estar la base de datos creada, se prosigue con la siguiente:
 create database BD09_RESPUESTASESTUDIANTES;
 ```
 
+En caso de querer borrar la BD para reinstalar, se puede borrar con el siguiente comando:
+
+```
+DROP DATABASE BD09_PREGUNTAS;
+DROP DATABASE BD09_RESPUESTASESTUDIANTES;
+```
+
 ### API's
 #### API_PREGUNTAS
-Con las bases de datos ya creadas, se deben consigurar sus respectivas API's. Para eso, se debe ir a la carpeta **API_PREGUNTAS** desde Visual Code Studio (o bien, escribir "cd API_PREGUNTAS" para ingresar desde la consola ya abierta).
+Con las bases de datos ya creadas, se deben configurar sus respectivas API's. Para eso, se debe ir a la carpeta **API_PREGUNTAS** desde Visual Code Studio (o bien, escribir "cd API_PREGUNTAS" para ingresar desde la consola ya abierta).
 
 Y se ingresa el siguiente comando:
 
 ```
 docker compose up --build -d
+```
+
+En caso de querer borrar el contenedor para reinstalar, se puede borrar directamente por Docker Compose, o directamente en la terminal con el siguiente comando:
+
+```
+docker-compose down
 ```
 
 #### API_RESPUESTASESTUDIANTES
-Con las bases de datos ya creadas, se deben consigurar sus respectivas API's. Para eso, se debe ir a la carpeta **API_RESPUESTASESTUDIANTES** desde Visual Code Studio (o bien, escribir "cd API_RESPUESTASESTUDIANTES" para ingresar desde la consola ya abierta).
+Con las bases de datos ya creadas, se deben configurar sus respectivas API's. Para eso, se debe ir a la carpeta **API_RESPUESTASESTUDIANTES** desde Visual Code Studio (o bien, escribir "cd API_RESPUESTASESTUDIANTES" para ingresar desde la consola ya abierta).
 
 Y se ingresa el siguiente comando:
 
 ```
 docker compose up --build -d
+```
+
+En caso de querer borrar el contenedor para reinstalar, se puede borrar directamente por Docker Compose, o directamente en la terminal con el siguiente comando:
+
+```
+docker-compose down
 ```
 
 Una vez levantado todo, deberían poder ver en Docker todos sus contenedores corriendo:
 
 ![Docker](img/contenedores.png)
 
-Pueden probar los siguientes end-points en Postman para verificarlo:
-```
-GET: localhost:8080/createTable
-```
-
-![Ejemplo1](img/ejemplo1.png)
-
-```
-GET: localhost:8081/createTable
-```
-
-![Ejemplo2](img/ejemplo2.png)
-
-Además, pueden poner en su navegador ```localhost:8080``` y/o ```localhost:8081```, y les debería salir el siguiente mensaje:
+Para probar que todo funciona correctamente, pueden poner en su navegador ```localhost:8080``` y/o ```localhost:8081```, y les debería salir el siguiente mensaje:
 
 ![Ejemplo3](img/navegador.png)
 
@@ -164,6 +178,7 @@ SHOW TABLES;
 
 ```
 npm install
+npm install axios
 ```
 3. Iniciar la Aplicación
 ```
@@ -178,3 +193,7 @@ Aca se pueden ver 2 botones:
 "Banca de Preguntas": Para crear/administrar preguntas.
 
 "Crear Ensayos": Para generar nuevos exámenes.
+
+Y para probar los Endpoints, se dejó la siguiente página de testeo para verificar la conexión de las tablas con React (conectividad del backend con frontend), además de proporcionar una idea de como usar las endpoints correctamente. Hasta ahora, como son los endpoints del docente, y como hay que configurar la lógica del filtro de los ensayos, favor de usar la materia "Matemáticas" para ver resultados exitosos. Debería ver algo como esto:
+
+![Ejemplo4](img/Tester.png)

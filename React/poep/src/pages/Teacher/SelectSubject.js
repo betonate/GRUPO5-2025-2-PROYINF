@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function SelectSubject() {
   const navigate = useNavigate();
 
-  // Simulamos materias del docente
-  const subjects = ['Matemáticas', 'Biología'];
+  const [subjects, setSubjects] = useState(['Matemáticas', 'Biología']); // Simulado temporalmente
 
   const handleSelect = (subject) => {
     navigate(`/teacher/question-bank/${subject}`);
@@ -20,15 +19,7 @@ export default function SelectSubject() {
           <button
             key={subj}
             onClick={() => handleSelect(subj)}
-            style={{
-              padding: '15px 30px',
-              borderRadius: '25px',
-              fontSize: '16px',
-              backgroundColor: '#f0f0f0',
-              border: '2px solid #ccc',
-              cursor: 'pointer'
-            }}
-          >
+            style={{ padding: '15px 30px', borderRadius: '25px', fontSize: '16px' }}>
             {subj}
           </button>
         ))}

@@ -7,6 +7,7 @@ import SelectSubject from './pages/Teacher/SelectSubject';
 import QuestionBank from './pages/Teacher/QuestionBank';
 import CreateQuestion from './pages/Teacher/CreateQuestion';
 import CreateExam from './pages/Teacher/CreateExam';
+import EndpointTester from './test/EndpointTester';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/teacher/create-exam" element={<CreateExam />} />
           <Route path="/teacher/select-subject" element={<SelectSubject />} />
           <Route path="/teacher/question-bank/:subject" element={<QuestionBank />} />
+          <Route path="/tester" element={<EndpointTester />} />
         </Routes>
       </div>
     </Router>
