@@ -197,3 +197,5 @@ Aca se pueden ver 2 botones:
 Y para probar los Endpoints, se dejó la siguiente página de testeo para verificar la conexión de las tablas con React (conectividad del backend con frontend), además de proporcionar una idea de como usar las endpoints correctamente. Hasta ahora, como son los endpoints del docente, y como hay que configurar la lógica del filtro de los ensayos, favor de usar la materia "Matemáticas" para ver resultados exitosos. Debería ver algo como esto:
 
 ![Ejemplo4](img/Tester.png)
+
+Para más información de como utilizar estas Endpoint de la API de Docente, revisar la sección de Servicios en la Wiki.
