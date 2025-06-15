@@ -1,17 +1,33 @@
 import React from 'react';
-import { exams } from '../../data/questionBank';
 import { Link } from 'react-router-dom';
 
-export default function ExamList() {
+// Datos simulados
+const simulatedExams = [
+  {
+    id: 1,
+    title: 'Ensayo PAES Matemáticas',
+    materia: 'Matemáticas',
+    realizado: false
+  },
+  {
+    id: 2,
+    title: 'Ensayo PAES Lenguaje',
+    materia: 'Lenguaje',
+    realizado: true
+  }
+];
+
+export default function ListaEnsayos() {
   return (
     <div>
-      <h3>Ensayos Disponibles</h3>
+      <h3>Ensayos Disponibles (Simulados)</h3>
       <ul>
-        {exams.map(exam => (
+        {simulatedExams.map(exam => (
           <li key={exam.id} style={{ marginBottom: '10px' }}>
-            <strong>{exam.title}</strong>
-            <br />
-            <Link to={`/student/answer/${exam.id}`}>
+            <strong>{exam.title}</strong><br />
+            Materia: {exam.materia}<br />
+            Estado: {exam.realizado ? 'Realizado' : 'No realizado'}<br />
+            <Link to={'/student/answer/${exam.id}'}>
               <button>Responder</button>
             </Link>
           </li>
