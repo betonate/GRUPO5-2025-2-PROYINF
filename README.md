@@ -19,6 +19,13 @@ Este es el repositorio del grupo 9, cuyos integrantes son:
 
 [Video](https://youtu.be/H5h_zy9Y0XM) de la presentación del **prototipo inicial**.
 
+## Prototipos no funcionales
+
+La estructura de las páginas está fuertemente basada en los prototipos no funcionales, realizadas en la plataforma Canva, a los que se puede acceder con los siguientes links:
+
+- [Prototipo no Funcional Vista de Docente](https://www.canva.com/design/DAGnMr12k2E/NpUe5zITuHcJT17LZZA17Q/edit)
+
+- [Prototipo no Funcional Vista de Estudiante](https://www.canva.com/design/DAGp0gH9JMk/jYRXS4-NTp42M0PJvgdR7g/edit?ui=eyJEIjp7IlAiOnsiQiI6ZmFsc2V9fX0)
 
 ## Aspectos técnicos relevantes  
 
@@ -53,7 +60,7 @@ Iniciaremos levantando la imagen de mysql en docker.
 4. Abra una terminal de bash directamente desde Visual Studio Code.
 5. Ingrese en esa terminal, el siguiente código:
 ```
-docker compose up --build
+docker-compose up --build
 ```
 6. Luego de pasado unos segundos, abra Docker y verifique si el contenedor se ha cargado completamente.
 
@@ -113,7 +120,7 @@ Con las bases de datos ya creadas, se deben configurar sus respectivas API's. Pa
 Y se ingresa el siguiente comando:
 
 ```
-docker compose up --build -d
+docker-compose up --build -d
 ```
 
 En caso de querer borrar el contenedor para reinstalar, se puede borrar directamente por Docker Compose, o directamente en la terminal con el siguiente comando:
@@ -170,6 +177,33 @@ USE BD09_RESPUESTASESTUDIANTES;
 SHOW TABLES;
 ```
 
+Y como actualmente, todavía no está la BD y APIs de datos de estudiantes y profesores, se usa los datos simulados de un estudiante de nombre Juanito Soto y con id_estudiante igual a 2450003, solo para la demostración, y con un profesor de nombre Juan Sativo con id_docente igual a docente_123. Para eso, se debe ingresar:
+
+```
+USE BD09_RESPUESTASESTUDIANTES;
+
+INSERT INTO Estudiante (id_estudiante, nombre)
+VALUES (2450003, 'Juanito Soto');
+
+USE BD09_PREGUNTAS;
+
+INSERT INTO Docente (id_docente, nombre, curso, materia)
+VALUES ('docente_123', 'Juan Sativo', '4 A', 'Matemticas');
+```
+
+## Poblar las tablas
+
+Para poblar las tablas, se dejó un archivo .json (en la carpeta /proyecto-base-main/Postman) que se puede abrir desde Portman para poblar las tablas de manera más rápida.
+
+Así, para poblar las tablas se debe:
+
+1. Abrir Postman.
+2. Dar click en Import (se necesita de una cuenta de Postman).
+3. Se selecciona o se arrasta el archivo Carga_Inicial_PAES.postman_collection.json
+4. Seleccionar la colección.
+5. Dar click en Run.
+
+
 ## Configurar el Frontend (React)
 
 1. Abrir Visual Studio Code como administrador.
@@ -184,7 +218,7 @@ npm install axios
 ```
 npm start
 ```
-4. Abrir en el navegador:
+4. Abrir en el navegador para la vista del profesor:
 ```
 http://localhost:3000/teacher
 ```
@@ -194,8 +228,18 @@ Aca se pueden ver 2 botones:
 
 "Crear Ensayos": Para generar nuevos exámenes.
 
-Y para probar los Endpoints, se dejó la siguiente página de testeo para verificar la conexión de las tablas con React (conectividad del backend con frontend), además de proporcionar una idea de como usar las endpoints correctamente. Hasta ahora, como son los endpoints del docente, y como hay que configurar la lógica del filtro de los ensayos, favor de usar la materia "Matemáticas" para ver resultados exitosos. Debería ver algo como esto:
+5. Abrir en el navegador para la vista del estudiante:
+```
+http://localhost:3000/student
+```
+Aca se puede ir a la materia del estudiante que se desee, para realizar el ensayo que se quiera, o ver el resultado de un ensayo ya hecho.
+
+Y para probar los Endpoints de profesor, se dejó la siguiente página de testeo para verificar la conexión de las tablas con React (conectividad del backend con frontend), además de proporcionar una idea de como usar las endpoints correctamente. Hasta ahora, como son los endpoints del docente, y como hay que configurar la lógica del filtro de los ensayos, favor de usar la materia "Matemáticas" para ver resultados exitosos. Debería ver algo como esto:
 
 ![Ejemplo4](img/Tester.png)
 
-Para más información de como utilizar estas Endpoint de la API de Docente, revisar la sección de Servicios en la Wiki.
+Y la página de Endpoints de estudiantes se encuentra en la siguiente página:
+
+![Ejemplo5](img/Testerestudiante.png)
+
+Para más información de como utilizar estas Endpoint de la API de Docente y Estudiante, revisar la sección de Servicios en la Wiki.

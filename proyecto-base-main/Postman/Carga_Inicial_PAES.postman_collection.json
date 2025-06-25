@@ -1,0 +1,981 @@
+{
+  "info": {
+    "name": "Carga Inicial PAES (Corregida)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "bd09-preguntas-respuestas-corregida"
+  },
+  "item": [
+    {
+      "name": "Crear Pregunta Matemáticas 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Matemáticas: ¿Cuál es la respuesta correcta a la pregunta número 1?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"B\", \"materia\": \"Matemáticas\", \"eje_tematico\": \"Eje 1\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Matemáticas 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Matemáticas: ¿Cuál es la respuesta correcta a la pregunta número 2?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"C\", \"materia\": \"Matemáticas\", \"eje_tematico\": \"Eje 2\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Matemáticas 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Matemáticas: ¿Cuál es la respuesta correcta a la pregunta número 3?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"D\", \"materia\": \"Matemáticas\", \"eje_tematico\": \"Eje 3\", \"dificultad\": 4, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Matemáticas 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Matemáticas: ¿Cuál es la respuesta correcta a la pregunta número 4?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"E\", \"materia\": \"Matemáticas\", \"eje_tematico\": \"Eje 4\", \"dificultad\": 5, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Matemáticas 5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Matemáticas: ¿Cuál es la respuesta correcta a la pregunta número 5?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"A\", \"materia\": \"Matemáticas\", \"eje_tematico\": \"Eje 5\", \"dificultad\": 1, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Matemáticas 6",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Matemáticas: ¿Cuál es la respuesta correcta a la pregunta número 6?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"B\", \"materia\": \"Matemáticas\", \"eje_tematico\": \"Eje 6\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Matemáticas 7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Matemáticas: ¿Cuál es la respuesta correcta a la pregunta número 7?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"C\", \"materia\": \"Matemáticas\", \"eje_tematico\": \"Eje 7\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Lenguaje 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Lenguaje: ¿Cuál es la respuesta correcta a la pregunta número 1?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"D\", \"materia\": \"Lenguaje\", \"eje_tematico\": \"Eje 1\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Lenguaje 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Lenguaje: ¿Cuál es la respuesta correcta a la pregunta número 2?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"E\", \"materia\": \"Lenguaje\", \"eje_tematico\": \"Eje 2\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Lenguaje 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Lenguaje: ¿Cuál es la respuesta correcta a la pregunta número 3?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"A\", \"materia\": \"Lenguaje\", \"eje_tematico\": \"Eje 3\", \"dificultad\": 4, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Lenguaje 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Lenguaje: ¿Cuál es la respuesta correcta a la pregunta número 4?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"B\", \"materia\": \"Lenguaje\", \"eje_tematico\": \"Eje 4\", \"dificultad\": 5, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Lenguaje 5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Lenguaje: ¿Cuál es la respuesta correcta a la pregunta número 5?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"C\", \"materia\": \"Lenguaje\", \"eje_tematico\": \"Eje 5\", \"dificultad\": 1, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Lenguaje 6",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Lenguaje: ¿Cuál es la respuesta correcta a la pregunta número 6?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"D\", \"materia\": \"Lenguaje\", \"eje_tematico\": \"Eje 6\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Lenguaje 7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Lenguaje: ¿Cuál es la respuesta correcta a la pregunta número 7?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"E\", \"materia\": \"Lenguaje\", \"eje_tematico\": \"Eje 7\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Ciencias 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Ciencias: ¿Cuál es la respuesta correcta a la pregunta número 1?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"A\", \"materia\": \"Ciencias\", \"eje_tematico\": \"Eje 1\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Ciencias 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Ciencias: ¿Cuál es la respuesta correcta a la pregunta número 2?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"B\", \"materia\": \"Ciencias\", \"eje_tematico\": \"Eje 2\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Ciencias 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Ciencias: ¿Cuál es la respuesta correcta a la pregunta número 3?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"C\", \"materia\": \"Ciencias\", \"eje_tematico\": \"Eje 3\", \"dificultad\": 4, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Ciencias 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Ciencias: ¿Cuál es la respuesta correcta a la pregunta número 4?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"D\", \"materia\": \"Ciencias\", \"eje_tematico\": \"Eje 4\", \"dificultad\": 5, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Ciencias 5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Ciencias: ¿Cuál es la respuesta correcta a la pregunta número 5?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"E\", \"materia\": \"Ciencias\", \"eje_tematico\": \"Eje 5\", \"dificultad\": 1, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Ciencias 6",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Ciencias: ¿Cuál es la respuesta correcta a la pregunta número 6?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"A\", \"materia\": \"Ciencias\", \"eje_tematico\": \"Eje 6\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Ciencias 7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Ciencias: ¿Cuál es la respuesta correcta a la pregunta número 7?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"B\", \"materia\": \"Ciencias\", \"eje_tematico\": \"Eje 7\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Historia 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Historia: ¿Cuál es la respuesta correcta a la pregunta número 1?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"C\", \"materia\": \"Historia\", \"eje_tematico\": \"Eje 1\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Historia 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Historia: ¿Cuál es la respuesta correcta a la pregunta número 2?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"D\", \"materia\": \"Historia\", \"eje_tematico\": \"Eje 2\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Historia 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Historia: ¿Cuál es la respuesta correcta a la pregunta número 3?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"E\", \"materia\": \"Historia\", \"eje_tematico\": \"Eje 3\", \"dificultad\": 4, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Historia 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Historia: ¿Cuál es la respuesta correcta a la pregunta número 4?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"A\", \"materia\": \"Historia\", \"eje_tematico\": \"Eje 4\", \"dificultad\": 5, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Historia 5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Historia: ¿Cuál es la respuesta correcta a la pregunta número 5?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"B\", \"materia\": \"Historia\", \"eje_tematico\": \"Eje 5\", \"dificultad\": 1, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Historia 6",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Historia: ¿Cuál es la respuesta correcta a la pregunta número 6?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"C\", \"materia\": \"Historia\", \"eje_tematico\": \"Eje 6\", \"dificultad\": 2, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Pregunta Historia 7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"enunciado\": \"Historia: ¿Cuál es la respuesta correcta a la pregunta número 7?\", \"opcion_a\": \"Alternativa A\", \"opcion_b\": \"Alternativa B\", \"opcion_c\": \"Alternativa C\", \"opcion_d\": \"Alternativa D\", \"opcion_e\": \"Alternativa E\", \"respuesta_correcta\": \"D\", \"materia\": \"Historia\", \"eje_tematico\": \"Eje 7\", \"dificultad\": 3, \"foto_url\": \"\"}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/preguntas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "preguntas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Matemáticas 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Matemáticas\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [1, 2, 3]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Matemáticas 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Matemáticas\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [4, 5, 6]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Lenguaje 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Lenguaje\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [8, 9, 10]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Lenguaje 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Lenguaje\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [11, 12, 13]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Ciencias 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Ciencias\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [15, 16, 17]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Ciencias 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Ciencias\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [18, 19, 20]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Historia 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Historia\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [22, 23, 24]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear Ensayo Historia 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"materia\": \"Historia\", \"tiempo_minutos\": 60, \"id_docente\": \"docente_123\", \"preguntas\": [25, 26, 27]}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/ensayos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "ensayos"
+          ]
+        }
+      }
+    }
+  ]
+}

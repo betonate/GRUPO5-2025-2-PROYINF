@@ -1,90 +1,73 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { api } from '../../services/api';
 
-// Ensayo simulado con preguntas de alternativas A-E
-const simulatedExam = {
-  id: 1,
-  title: 'Ensayo PAES Matemáticas',
-  questions: [
-    {
-      id: 101,
-      question: '¿Cuál es el resultado de 2 + 2?',
-      subject: 'Matemáticas',
-      options: {
-        A: '3',
-        B: '4',
-        C: '5',
-        D: '6',
-        E: '2'
-      }
-    },
-    {
-      id: 102,
-      question: 'Resuelve: x + 3 = 5. ¿Cuál es x?',
-      subject: 'Matemáticas',
-      options: {
-        A: '1',
-        B: '2',
-        C: '3',
-        D: '4',
-        E: '5'
-      }
-    }
-  ]
-};
-
-export default function RespuestaExamen() {
+const RespuestaExamen = () => {
   const { examId } = useParams();
-  const exam = parseInt(examId) === simulatedExam.id ? simulatedExam : null;
+  const [preguntas, setPreguntas] = useState([]);
   const [respuestas, setRespuestas] = useState({});
+  const navigate = useNavigate();
 
-  const handleSelect = (preguntaId, opcion) => {
-    setRespuestas(prev => ({
-      ...prev,
-      [preguntaId]: opcion
-    }));
+  useEffect(() => {
+    api.getQuestionsFromExam(examId)
+      .then(res => setPreguntas(res.data))
+      .catch(err => console.error('Error al cargar preguntas', err));
+  }, [examId]);
+
+  const handleChange = (id_pregunta, respuesta) => {
+    setRespuestas(prev => ({ ...prev, [id_pregunta]: respuesta }));
   };
 
+
   const handleSubmit = () => {
-    const sinResponder = exam.questions.some(q => !respuestas[q.id]);
-    if (sinResponder) {
-      alert('⚠ Debes responder todas las preguntas');
+
+    const respuestasFormateadas = Object.entries(respuestas).map(([id_pregunta, respuesta]) => ({
+      id_pregunta: parseInt(id_pregunta),
+      respuesta
+    }));
+
+    if (respuestasFormateadas.length === 0) {
+      alert('Selecciona al menos una respuesta');
       return;
     }
 
-    console.log('Respuestas enviadas:', respuestas);
-    alert('✅ Respuestas enviadas correctamente (simulado)');
+    api.submitAnswers({
+      id_ensayo: parseInt(examId),
+      respuestas: respuestasFormateadas,
+      tiempo_resolucion: 10 // min hardcodeado
+    }).then(res => {
+      alert('Respuestas enviadas!');
+      navigate('/student/exams');
+    }).catch(err => {
+      alert('Error al enviar respuestas', err);
+    });
+
   };
 
-  if (!exam) return <p>⚠ Ensayo no encontrado (simulación)</p>;
-
   return (
-    <div style={{ padding: '1rem' }}>
-      <h2>📝 Respondiendo: {exam.title}</h2>
-      <ul>
-        {exam.questions.map((q, index) => (
-          <li key={q.id} style={{ marginBottom: '1.5rem' }}>
-            <strong>{index + 1}. {q.question}</strong><br />
-            {Object.entries(q.options).map(([letra, texto]) => (
-              <label key={letra} style={{ display: 'block', marginTop: '0.5rem' }}>
-                <input
-                  type="radio"
-                  name={`pregunta-${q.id}`}
-
-                  value={letra}
-                  checked={respuestas[q.id] === letra}
-                  onChange={() => handleSelect(q.id, letra)}
-                />
-                {' '}{letra} {texto}
-              </label>
-            ))}
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleSubmit}>Enviar Respuestas</button>
+    <div>
+      <h2>Responde el ensayo</h2>
+      {preguntas.map(p => (
+        <div key={p.id_pregunta}>
+          <p><strong>{p.enunciado}</strong></p>
+          {['a', 'b', 'c', 'd', 'e'].map(letra => (
+            <label key={letra}>
+              <input
+                type="radio"
+                name={`pregunta-${p.id_pregunta}`}
+                value={letra}
+                checked={respuestas[p.id_pregunta] === letra}
+                onChange={() => handleChange(p.id_pregunta, letra)}
+              />
+              {p[`opcion_${letra}`]}
+            </label>
+          ))}
+          <hr />
+        </div>
+      ))}
+      <button onClick={handleSubmit}>Enviar</button>
     </div>
   );
-}
+};
 
-
-
+export default RespuestaExamen;
