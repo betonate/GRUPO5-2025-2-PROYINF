@@ -35,18 +35,6 @@ Si antes momento de montar el proyecto base, el usuario ha usado xampp anteriorm
 
 Para utilizar el proyecto base debe tener instalado [Node.js](https://nodejs.org/en), [Docker](https://www.docker.com/), se recomienda usar Visual Studio Code para modificar cualquier archivo o para acceder a la consola, y se recomienda [Postman](https://www.postman.com/) para poder probar los endpoints de las APIs. Al ya tener instalado Docker, se recomienda reinciar el PC para un correcto funcionamiento.
 
-## Puntos a Considerar
-La solución a desarrollar debe seguir los siguientes lineamientos (imagen referecial al final):
-* Se debe considerar dos API's:
-    * **API_PREGUNTAS:** Con todo lo referido a las preguntas de los ensayos.
-    * **API_RESPUESTASESTUDIANTES**: Con todo lo referido a las respuestas de los estudiantes a cada pregunta.
-* Cada API contará con una base de datos mysql.
-* Las API's deben ser construidas utilizando [Node.js](https://nodejs.org/en), además cuentan con [Express](https://expressjs.com/es/) para facilitar la construcción de estas.
-* Las bases de datos deben estar en el mismo contenedor, pero no deben compartirse servicios.
-* Cada servicio debe estar en un contenedor.
-* El proyecto base solo considera los servicios.
-
-![Modelo](img/diagrama2.png)
 
 * CADA VEZ QUE SE HAGA UNA ACTUALIZACIÓN, ES RECOMENDABLE BORRAR E INSTALAR, YA SEA LAS BD O LOS CONTENEDORES DE DOCKER CON LAS INSTRUCCIONES DE A CONTINUACIÓN.
 
@@ -90,12 +78,17 @@ Luego de estar la base de datos creada, se prosigue con la siguiente:
 ```
 create database BD09_RESPUESTASESTUDIANTES;
 ```
+Luego de estar la base de datos creada, se prosigue con la siguiente:
+```
+create database BD09_USUARIOS;
+```
 
 En caso de querer borrar la BD para reinstalar, se puede borrar con el siguiente comando:
 
 ```
 DROP DATABASE BD09_PREGUNTAS;
 DROP DATABASE BD09_RESPUESTASESTUDIANTES;
+DROP DATABASE BD09_USUARIOS;
 ```
 
 ### API's
@@ -129,11 +122,26 @@ En caso de querer borrar el contenedor para reinstalar, se puede borrar directam
 docker-compose down
 ```
 
+#### API_USUARIOS
+Con las bases de datos ya creadas, se deben configurar sus respectivas API's. Para eso, se debe ir a la carpeta **API_USUARIOS** desde Visual Code Studio (o bien, escribir "cd API_USUARIOS" para ingresar desde la consola ya abierta).
+
+Y se ingresa el siguiente comando:
+
+```
+docker-compose up --build -d
+```
+
+En caso de querer borrar el contenedor para reinstalar, se puede borrar directamente por Docker Compose, o directamente en la terminal con el siguiente comando:
+
+```
+docker-compose down
+```
+
 Una vez levantado todo, deberían poder ver en Docker todos sus contenedores corriendo:
 
 ![Docker](img/contenedores.png)
 
-Para probar que todo funciona correctamente, pueden poner en su navegador ```localhost:8080``` y/o ```localhost:8081```, y les debería salir el siguiente mensaje:
+Para probar que todo funciona correctamente, pueden poner en su navegador ```localhost:8080``` y/o ```localhost:8081``` y/o ```localhost:8082```, y les debería salir un mensaje como el siguiente:
 
 ![Ejemplo3](img/navegador.png)
 
@@ -146,9 +154,11 @@ Una vez ya creadas las bases de datos, hay que crear las tablas necesarias, que 
 3. Abrir la terminal y copiar los archivos .sql al contenedor principal de docker, ingresando los siguientes comandos:
 
 ```
-docker cp API_PREGUNTAS/archivos_sql/banca_preguntas.sql proyecto-base-main-mysql-1:/banca_preguntas.sql
+docker cp API_PREGUNTAS/archivos_sql/preguntas_ensayos.sql proyecto-base-main-mysql-1:/preguntas_ensayos.sql
 
 docker cp API_RESPUESTASESTUDIANTES/archivos_sql/resultados_ensayos.sql proyecto-base-main-mysql-1:/resultados_ensayos.sql
+
+docker cp API_USUARIOS/archivos_sql/datos_usuarios.sql proyecto-base-main-mysql-1:/datos_usuarios.sql
 ```
 4. Acceder a la terminal de docker con el siguiente comando:
 
@@ -160,8 +170,9 @@ Seguido de esto, se debe ingresar la contraseña de la base de datos, osea "pass
 5. Se ejecutan los archivos .sql copiados al contendor de docker para que se creen las tablas, con los siguientes comandos (todo desde la consola de docker):
 
 ```
-source /banca_preguntas.sql;
+source /preguntas_ensayos.sql;
 source /resultados_ensayos.sql;
+source /datos_usuarios.sql;
 ```
 6. Para verificar la creacion de las tablas, desde la misma terminal de docker se puede ingresar los comandos:
 
@@ -177,18 +188,11 @@ USE BD09_RESPUESTASESTUDIANTES;
 SHOW TABLES;
 ```
 
-Y como actualmente, todavía no está la BD y APIs de datos de estudiantes y profesores, se usa los datos simulados de un estudiante de nombre Juanito Soto y con id_estudiante igual a 2450003, solo para la demostración, y con un profesor de nombre Juan Sativo con id_docente igual a docente_123. Para eso, se debe ingresar:
+Y para la base de datos de usuarios:
 
 ```
-USE BD09_RESPUESTASESTUDIANTES;
-
-INSERT INTO Estudiante (id_estudiante, nombre)
-VALUES (2450003, 'Juanito Soto');
-
-USE BD09_PREGUNTAS;
-
-INSERT INTO Docente (id_docente, nombre, curso, materia)
-VALUES ('docente_123', 'Juan Sativo', '4 A', 'Matemticas');
+USE BD09_USUARIOS;
+SHOW TABLES;
 ```
 
 ## Poblar las tablas
@@ -199,9 +203,10 @@ Así, para poblar las tablas se debe:
 
 1. Abrir Postman.
 2. Dar click en Import (se necesita de una cuenta de Postman).
-3. Se selecciona o se arrasta el archivo Carga_Inicial_PAES.postman_collection.json
+3. Se selecciona o se arrasta el archivo "Poblacion_Individual_PAES.postman_collection.json"
 4. Seleccionar la colección.
 5. Dar click en Run.
+6. Repetir el mismo proceso con el archivo "Poblacion_Adicional.postman_collection.json".
 
 
 ## Configurar el Frontend (React)
@@ -211,35 +216,19 @@ Así, para poblar las tablas se debe:
 2. Instalar las dependencias
 
 ```
-npm install
 npm install axios
+npm install jwt-decode
 ```
 3. Iniciar la Aplicación
 ```
 npm start
 ```
-4. Abrir en el navegador para la vista del profesor:
+## Ejecución con login
+
+Está implementado y operativo el sistema de login. Como no es responsabilidad de nuestro negocio el crear estos usuarios, se implementó una página de adminitración para ver los tipos de usuarios y sus IDs (correos) para iniciar sesión (Estudiante y Docente operativos). La contraseña de todos los usuarios poblados por la tabla es "password123". Se puede ver y crear usuario a través de la siguiente página:
+
 ```
-http://localhost:3000/teacher
+http://localhost:3000/admin/dashboard
 ```
-Aca se pueden ver 2 botones:
 
-"Banca de Preguntas": Para crear/administrar preguntas.
-
-"Crear Ensayos": Para generar nuevos exámenes.
-
-5. Abrir en el navegador para la vista del estudiante:
-```
-http://localhost:3000/student
-```
-Aca se puede ir a la materia del estudiante que se desee, para realizar el ensayo que se quiera, o ver el resultado de un ensayo ya hecho.
-
-Y para probar los Endpoints de profesor, se dejó la siguiente página de testeo para verificar la conexión de las tablas con React (conectividad del backend con frontend), además de proporcionar una idea de como usar las endpoints correctamente. Hasta ahora, como son los endpoints del docente, y como hay que configurar la lógica del filtro de los ensayos, favor de usar la materia "Matemáticas" para ver resultados exitosos. Debería ver algo como esto:
-
-![Ejemplo4](img/Tester.png)
-
-Y la página de Endpoints de estudiantes se encuentra en la siguiente página:
-
-![Ejemplo5](img/Testerestudiante.png)
-
-Para más información de como utilizar estas Endpoint de la API de Docente y Estudiante, revisar la sección de Servicios en la Wiki.
+Luego, con ir a la página principal se puede encontrar la vista del docente y del usuario operativa (dependiendo de cual se loggee).

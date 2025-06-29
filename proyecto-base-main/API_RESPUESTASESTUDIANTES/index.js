@@ -26,14 +26,13 @@ db.connect(err => {
 
 // Crear nuevo resultado y guardar respuestas
 app.post('/responder', (req, res) => {
-  const { id_ensayo, respuestas, tiempo_resolucion } = req.body;
+  // AHORA RECIBIMOS EL ID DEL ESTUDIANTE DESDE EL FRONTEND
+  const { id_ensayo, respuestas, tiempo_resolucion, id_estudiante } = req.body;
 
-  // Validaciones básicas
-  if (!id_ensayo || !Array.isArray(respuestas) || respuestas.length === 0 || !tiempo_resolucion) {
+  if (!id_ensayo || !Array.isArray(respuestas) || !tiempo_resolucion || !id_estudiante) {
     return res.status(400).json({ error: 'Faltan datos necesarios para registrar el resultado.' });
   }
 
-  const id_estudiante = 2450003; // Juanito Soto
   const fecha = new Date().toISOString().split('T')[0];
 
   const sqlResultado = `
@@ -49,10 +48,9 @@ app.post('/responder', (req, res) => {
 
     const id_resultado = result.insertId;
 
-    // Verificar estructura de respuestas
     const values = respuestas.map(r => {
       const id_pregunta = parseInt(r.id_pregunta, 10);
-      const respuesta = r.respuesta?.toString().toLowerCase().trim();
+      const respuesta = r.respuesta_dada?.toString().toLowerCase().trim();
       return [id_resultado, id_pregunta, respuesta];
     });
 
@@ -61,33 +59,32 @@ app.post('/responder', (req, res) => {
       VALUES ?
     `;
 
-    db.query(sqlInsert, [values], (err2) => {
-      if (err2) {
-        console.error('Error al insertar Respuestas:', err2);
-        return res.status(500).json({ error: 'Error al guardar respuestas' });
-      }
-
-      res.status(201).json({ mensaje: 'Respuestas guardadas', id_resultado });
-    });
+    // Solo intentamos insertar si hay respuestas
+    if (values.length > 0) {
+        db.query(sqlInsert, [values], (err2) => {
+            if (err2) {
+              console.error('Error al insertar Respuestas:', err2);
+              return res.status(500).json({ error: 'Error al guardar respuestas' });
+            }
+            res.status(201).json({ mensaje: 'Respuestas guardadas', id_resultado });
+          });
+    } else {
+        res.status(201).json({ mensaje: 'Ensayo registrado (sin respuestas marcadas)', id_resultado });
+    }
   });
 });
-
 
 // Obtener resultados del estudiante
 app.get('/resultados/estudiante/:id_estudiante', (req, res) => {
   const { id_estudiante } = req.params;
-  const sql = `
-    SELECT id_resultado, id_ensayo, fecha, tiempo_resolucion, puntaje
-    FROM Resultado
-    WHERE id_estudiante = ?
-  `;
+  const sql = `SELECT * FROM Resultado WHERE id_estudiante = ?`;
   db.query(sql, [id_estudiante], (err, results) => {
     if (err) return res.status(500).json({ error: 'Error al obtener resultados' });
     res.json(results);
   });
 });
 
-// Obtener respuestas de un resultado
+// Obtener un resultado específico
 app.get('/resultado/:id_resultado', (req, res) => {
   const { id_resultado } = req.params;
   const sql = `SELECT * FROM Resultado WHERE id_resultado = ?`;
@@ -98,7 +95,6 @@ app.get('/resultado/:id_resultado', (req, res) => {
 });
 
 // Obtener las respuestas de un resultado
-
 app.get('/respuestas/:id_resultado', (req, res) => {
     const { id_resultado } = req.params;
     const sql = 'SELECT id_pregunta, respuesta_dada FROM Respuesta WHERE id_resultado = ?';

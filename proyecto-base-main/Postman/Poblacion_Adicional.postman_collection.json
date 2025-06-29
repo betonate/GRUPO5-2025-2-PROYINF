@@ -1,0 +1,569 @@
+{
+	"info": {
+		"_postman_id": "adicional-paes-collection-v1",
+		"name": "Población Adicional (Preguntas y Ensayos)",
+		"description": "Contiene las 40 preguntas restantes y los 10 ensayos finales. Ejecutar DESPUÉS de la carga inicial.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Creación de Preguntas Restantes (8)",
+			"item": [
+				{
+					"name": "Matemáticas M2",
+					"item": [
+						{
+							"name": "M2 - Pregunta 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"¿Cuál es la derivada de f(x) = x³ + 2x² - 3x + 5?\", \"opcion_a\": \"3x² + 4x - 3\", \"opcion_b\": \"x³ + 2x² - 3\", \"opcion_c\": \"3x² + 4x\", \"opcion_d\": \"3x² - 3\", \"opcion_e\": \"x² + x - 3\", \"respuesta_correcta\": \"a\", \"id_materia\": \"mat_m2\", \"eje_tematico\": \"Cálculo Diferencial\", \"dificultad\": 4}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M2 - Pregunta 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"Un vector tiene su punto inicial en P(1, 2) y su punto final en Q(5, 5). ¿Cuáles son sus componentes?\", \"opcion_a\": \"(6, 7)\", \"opcion_b\": \"(4, 3)\", \"opcion_c\": \"(5, 2.5)\", \"opcion_d\": \"(-4, -3)\", \"opcion_e\": \"(3, 4)\", \"respuesta_correcta\": \"b\", \"id_materia\": \"mat_m2\", \"eje_tematico\": \"Geometría Vectorial\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Lenguaje",
+					"item": [
+						{
+							"name": "Lenguaje - Pregunta 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"¿Qué función del lenguaje predomina en un manual de instrucciones?\", \"opcion_a\": \"Poética\", \"opcion_b\": \"Emotiva\", \"opcion_c\": \"Fática\", \"opcion_d\": \"Apelativa\", \"opcion_e\": \"Referencial\", \"respuesta_correcta\": \"d\", \"id_materia\": \"len\", \"eje_tematico\": \"Teoría de la Comunicación\", \"dificultad\": 4}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lenguaje - Pregunta 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"'Llorar a mares' es un ejemplo de:\", \"opcion_a\": \"Metáfora\", \"opcion_b\": \"Símil\", \"opcion_c\": \"Hipérbole\", \"opcion_d\": \"Personificación\", \"opcion_e\": \"Ironía\", \"respuesta_correcta\": \"c\", \"id_materia\": \"len\", \"eje_tematico\": \"Figuras Literarias\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ciencias",
+					"item": [
+						{
+							"name": "Ciencias - Pregunta 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"¿Cuál es el organelo celular encargado de la respiración celular?\", \"opcion_a\": \"Núcleo\", \"opcion_b\": \"Ribosoma\", \"opcion_c\": \"Cloroplasto\", \"opcion_d\": \"Mitocondria\", \"opcion_e\": \"Lisosoma\", \"respuesta_correcta\": \"d\", \"id_materia\": \"cie\", \"eje_tematico\": \"Biología Celular\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ciencias - Pregunta 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"La fórmula F = m * a corresponde a:\", \"opcion_a\": \"La ley de Ohm\", \"opcion_b\": \"La ley de la gravedad\", \"opcion_c\": \"La segunda ley de Newton\", \"opcion_d\": \"El principio de Arquímedes\", \"opcion_e\": \"La ley de la termodinámica\", \"respuesta_correcta\": \"c\", \"id_materia\": \"cie\", \"eje_tematico\": \"Física\", \"dificultad\": 2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Historia",
+					"item": [
+						{
+							"name": "Historia - Pregunta 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"La Revolución Francesa comenzó en el año:\", \"opcion_a\": \"1689\", \"opcion_b\": \"1776\", \"opcion_c\": \"1789\", \"opcion_d\": \"1810\", \"opcion_e\": \"1848\", \"respuesta_correcta\": \"c\", \"id_materia\": \"his\", \"eje_tematico\": \"Historia Universal\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Historia - Pregunta 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"La 'Guerra del Pacífico' enfrentó a Chile contra:\", \"opcion_a\": \"Argentina\", \"opcion_b\": \"La Confederación Perú-Boliviana\", \"opcion_c\": \"Ecuador y Colombia\", \"opcion_d\": \"Brasil\", \"opcion_e\": \"Paraguay\", \"respuesta_correcta\": \"b\", \"id_materia\": \"his\", \"eje_tematico\": \"Historia de Chile\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "2. Creación de Ensayos (10)",
+			"item": [
+				{
+					"name": "Matemáticas M1",
+					"item": [
+						{
+							"name": "M1 - Ensayo 1 (1 Curso)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"mat_m1\",\n    \"tiempo_minutos\": 20,\n    \"id_docente\": \"patricia.gomez@email.com\",\n    \"preguntas\": [1, 3, 5, 7, 9],\n    \"cursos\": [\"col_sanjuan_01.4a\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Ensayo 2 (2 Cursos)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"mat_m1\",\n    \"tiempo_minutos\": 25,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [2, 4, 6, 8, 10],\n    \"cursos\": [\"col_sanjuan_01.4a\", \"col_sanjuan_01.4b\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Matemáticas M2",
+					"item": [
+						{
+							"name": "M2 - Ensayo 1 (1 Curso)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"mat_m2\",\n    \"tiempo_minutos\": 30,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [11, 12],\n    \"cursos\": [\"col_sanjuan_01.4c\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M2 - Ensayo 2 (2 Cursos)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"mat_m2\",\n    \"tiempo_minutos\": 30,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [11, 12],\n    \"cursos\": [\"col_sanjuan_01.4a\", \"col_sanjuan_01.4b\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Lenguaje",
+					"item": [
+						{
+							"name": "Lenguaje - Ensayo 1 (1 Curso)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"len\",\n    \"tiempo_minutos\": 25,\n    \"id_docente\": \"ricardo.vega@email.com\",\n    \"preguntas\": [13, 14],\n    \"cursos\": [\"col_sanjuan_01.4b\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Lenguaje - Ensayo 2 (2 Cursos)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"len\",\n    \"tiempo_minutos\": 25,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [13, 14],\n    \"cursos\": [\"col_sanjuan_01.4a\", \"col_sanjuan_01.4b\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ciencias",
+					"item": [
+						{
+							"name": "Ciencias - Ensayo 1 (1 Curso)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"cie\",\n    \"tiempo_minutos\": 35,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [15, 16],\n    \"cursos\": [\"col_sanjuan_01.4a\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ciencias - Ensayo 2 (2 Cursos)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"cie\",\n    \"tiempo_minutos\": 35,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [15, 16],\n    \"cursos\": [\"col_sanjuan_01.4b\", \"col_sanjuan_01.4c\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Historia",
+					"item": [
+						{
+							"name": "Historia - Ensayo 1 (1 Curso)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"his\",\n    \"tiempo_minutos\": 40,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [17, 18],\n    \"cursos\": [\"col_sanjuan_01.4b\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Historia - Ensayo 2 (2 Cursos)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_materia\": \"his\",\n    \"tiempo_minutos\": 40,\n    \"id_docente\": \"docente_123@gmail.com\",\n    \"preguntas\": [17, 18],\n    \"cursos\": [\"col_sanjuan_01.4a\", \"col_sanjuan_01.4c\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/ensayos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ensayos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

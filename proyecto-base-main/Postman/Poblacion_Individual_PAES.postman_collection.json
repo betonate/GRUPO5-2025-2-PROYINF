@@ -1,0 +1,1487 @@
+{
+	"info": {
+		"_postman_id": "ultimate-paes-collection-v4-full",
+		"name": "Población Definitiva PAES (Completa y Final)",
+		"description": "Versión final, completa y corregida. Usa endpoints individuales para poblar todas las tablas con datos masivos y de alta calidad.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Creación de Datos Maestros",
+			"item": [
+				{
+					"name": "Crear Institución: Colegio San Juan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_institucion\": \"col_sanjuan_01\",\n    \"nombre_display\": \"Colegio San Juan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/instituciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"instituciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Curso: 4°A",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_curso\": \"col_sanjuan_01.4a\",\n    \"nombre_display\": \"4°A\",\n    \"id_institucion\": \"col_sanjuan_01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/cursos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Curso: 4°B",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_curso\": \"col_sanjuan_01.4b\",\n    \"nombre_display\": \"4°B\",\n    \"id_institucion\": \"col_sanjuan_01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/cursos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Curso: 4°C",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_curso\": \"col_sanjuan_01.4c\",\n    \"nombre_display\": \"4°C\",\n    \"id_institucion\": \"col_sanjuan_01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/cursos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"cursos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Materia: Matemáticas M1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_materia\": \"mat_m1\", \"nombre_display\": \"Matemáticas M1\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/materias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"materias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Materia: Matemáticas M2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_materia\": \"mat_m2\", \"nombre_display\": \"Matemáticas M2\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/materias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"materias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Materia: Lenguaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_materia\": \"len\", \"nombre_display\": \"Lenguaje\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/materias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"materias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Materia: Ciencias",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_materia\": \"cie\", \"nombre_display\": \"Ciencias\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/materias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"materias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Materia: Historia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_materia\": \"his\", \"nombre_display\": \"Historia\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/materias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"materias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Creación de Usuarios",
+			"item": [
+				{
+					"name": "Crear Docente Juan Sativo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"docente_123@gmail.com\", \"nombre_completo\": \"Juan Sativo\", \"contrasena\": \"password123\", \"rol\": \"docente\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Docente Patricia Gómez",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"patricia.gomez@email.com\", \"nombre_completo\": \"Patricia Gómez\", \"contrasena\": \"password123\", \"rol\": \"docente\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Docente Ricardo Vega",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"ricardo.vega@email.com\", \"nombre_completo\": \"Ricardo Vega\", \"contrasena\": \"password123\", \"rol\": \"docente\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Estudiante 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"ana.perez@email.com\", \"nombre_completo\": \"Ana Pérez\", \"contrasena\": \"password123\", \"rol\": \"estudiante\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Estudiante 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"basti.rojas@email.com\", \"nombre_completo\": \"Bastián Rojas\", \"contrasena\": \"password123\", \"rol\": \"estudiante\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Estudiante 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"carla.diaz@email.com\", \"nombre_completo\": \"Carla Díaz\", \"contrasena\": \"password123\", \"rol\": \"estudiante\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Estudiante 4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"diego.lopez@email.com\", \"nombre_completo\": \"Diego López\", \"contrasena\": \"password123\", \"rol\": \"estudiante\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Estudiante 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"elena.munoz@email.com\", \"nombre_completo\": \"Elena Muñoz\", \"contrasena\": \"password123\", \"rol\": \"estudiante\", \"id_institucion\": \"col_sanjuan_01\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Directivo 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"director.general@email.com\", \"nombre_completo\": \"Director General\", \"contrasena\": \"password123\", \"rol\": \"directivo\", \"id_institucion\": null }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Directivo 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"id_usuario\": \"jefe.utp@email.com\", \"nombre_completo\": \"Jefe UTP Nacional\", \"contrasena\": \"password123\", \"rol\": \"directivo\", \"id_institucion\": null }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. Asignaciones de Cursos y Materias",
+			"item": [
+				{
+					"name": "Asignar Cursos - Estudiantes",
+					"item": [
+						{
+							"name": "Asignar Ana a 4A",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_usuario\": \"ana.perez@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/usuarios/cursos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"usuarios",
+										"cursos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Asignar Bastián a 4A",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_usuario\": \"basti.rojas@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/usuarios/cursos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"usuarios",
+										"cursos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Asignar Carla a 4A y 4B",
+							"item": [
+								{
+									"name": "Asignar Carla a 4A",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"carla.diaz@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4a\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Carla a 4B",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"carla.diaz@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4b\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Asignar Diego a 4A y 4B",
+							"item": [
+								{
+									"name": "Asignar Diego a 4A",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"diego.lopez@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4a\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Diego a 4B",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"diego.lopez@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4b\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Asignar Elena a 4A y 4B",
+							"item": [
+								{
+									"name": "Asignar Elena a 4A",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"elena.munoz@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4a\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Elena a 4B",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"elena.munoz@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4b\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Asignar Cursos a Docentes",
+					"item": [
+						{
+							"name": "Asignar Juan Sativo a 3 Cursos",
+							"item": [
+								{
+									"name": "Asignar Juan a 4A",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_curso\": \"col_sanjuan_01.4a\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Juan a 4B",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_curso\": \"col_sanjuan_01.4b\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Juan a 4C",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_curso\": \"col_sanjuan_01.4c\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/cursos",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"cursos"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Asignar Patricia a 4A",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_usuario\": \"patricia.gomez@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/usuarios/cursos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"usuarios",
+										"cursos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Asignar Ricardo a 4B",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_usuario\": \"ricardo.vega@email.com\",\n    \"id_curso\": \"col_sanjuan_01.4b\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/usuarios/cursos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"usuarios",
+										"cursos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Asignar Materias a Docentes",
+					"item": [
+						{
+							"name": "Asignar Juan Sativo a 5 Materias",
+							"item": [
+								{
+									"name": "Asignar Juan a Mat M1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_materia\": \"mat_m1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/materias",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"materias"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Juan a Mat M2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_materia\": \"mat_m2\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/materias",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"materias"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Juan a Lenguaje",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_materia\": \"len\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/materias",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"materias"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Juan a Ciencias",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_materia\": \"cie\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/materias",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"materias"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Asignar Juan a Historia",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id_usuario\": \"docente_123@gmail.com\",\n    \"id_materia\": \"his\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8082/usuarios/materias",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8082",
+											"path": [
+												"usuarios",
+												"materias"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Asignar Patricia a Mat M1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_usuario\": \"patricia.gomez@email.com\",\n    \"id_materia\": \"mat_m1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/usuarios/materias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"usuarios",
+										"materias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Asignar Ricardo a Lenguaje",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_usuario\": \"ricardo.vega@email.com\",\n    \"id_materia\": \"len\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/usuarios/materias",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"usuarios",
+										"materias"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "4. Creación de Preguntas (50+)",
+			"item": [
+				{
+					"name": "Matemáticas M1",
+					"item": [
+						{
+							"name": "M1 - Pregunta 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"Si f(x) = 3x - 5, ¿cuál es el valor de f(4)?\", \"opcion_a\": \"5\", \"opcion_b\": \"7\", \"opcion_c\": \"9\", \"opcion_d\": \"12\", \"opcion_e\": \"-1\", \"respuesta_correcta\": \"b\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Álgebra y Funciones\", \"dificultad\": 2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"¿Cuál es el perímetro de un rectángulo de lados 10 cm y 6 cm?\", \"opcion_a\": \"16 cm\", \"opcion_b\": \"60 cm\", \"opcion_c\": \"32 cm\", \"opcion_d\": \"22 cm\", \"opcion_e\": \"42 cm\", \"respuesta_correcta\": \"c\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Geometría\", \"dificultad\": 1}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"Resolver la ecuación: 5x + 3 = 28\", \"opcion_a\": \"x = 3\", \"opcion_b\": \"x = 4\", \"opcion_c\": \"x = 5\", \"opcion_d\": \"x = 6\", \"opcion_e\": \"x = 7\", \"respuesta_correcta\": \"c\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Álgebra y Funciones\", \"dificultad\": 2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 4",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"Un artículo que costaba $8000 ahora cuesta $6000. ¿Qué porcentaje de descuento se aplicó?\", \"opcion_a\": \"15%\", \"opcion_b\": \"20%\", \"opcion_c\": \"25%\", \"opcion_d\": \"30%\", \"opcion_e\": \"33.3%\", \"respuesta_correcta\": \"c\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Números\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 5",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"En una caja hay 5 bolas rojas, 3 azules y 2 verdes. ¿Cuál es la probabilidad de sacar una bola que no sea azul?\", \"opcion_a\": \"3/10\", \"opcion_b\": \"5/10\", \"opcion_c\": \"2/10\", \"opcion_d\": \"7/10\", \"opcion_e\": \"8/10\", \"respuesta_correcta\": \"d\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Probabilidad y Estadística\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 6",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"La suma de dos números consecutivos es 41. ¿Cuáles son los números?\", \"opcion_a\": \"19 y 22\", \"opcion_b\": \"20 y 21\", \"opcion_c\": \"18 y 23\", \"opcion_d\": \"21 y 22\", \"opcion_e\": \"15 y 26\", \"respuesta_correcta\": \"b\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Álgebra y Funciones\", \"dificultad\": 2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 7",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"¿Cuál es el área de un triángulo con base 12 cm y altura 5 cm?\", \"opcion_a\": \"60 cm²\", \"opcion_b\": \"17 cm²\", \"opcion_c\": \"30 cm²\", \"opcion_d\": \"25 cm²\", \"opcion_e\": \"34 cm²\", \"respuesta_correcta\": \"c\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Geometría\", \"dificultad\": 1}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 8",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"Si 4 manzanas cuestan $1000, ¿cuánto cuestan 7 manzanas?\", \"opcion_a\": \"$1500\", \"opcion_b\": \"$1750\", \"opcion_c\": \"$2000\", \"opcion_d\": \"$1250\", \"opcion_e\": \"$2500\", \"respuesta_correcta\": \"b\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Números\", \"dificultad\": 2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 9",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"Las notas de un alumno son 6.0, 5.0, 7.0 y 6.0. ¿Cuál es su promedio?\", \"opcion_a\": \"5.5\", \"opcion_b\": \"6.0\", \"opcion_c\": \"6.2\", \"opcion_d\": \"6.5\", \"opcion_e\": \"5.8\", \"respuesta_correcta\": \"b\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Probabilidad y Estadística\", \"dificultad\": 2}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "M1 - Pregunta 10",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"enunciado\": \"¿Cuál de los siguientes números es un número primo?\", \"opcion_a\": \"9\", \"opcion_b\": \"15\", \"opcion_c\": \"21\", \"opcion_d\": \"29\", \"opcion_e\": \"33\", \"respuesta_correcta\": \"d\", \"id_materia\": \"mat_m1\", \"eje_tematico\": \"Números\", \"dificultad\": 3}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/preguntas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"preguntas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Matemáticas M2",
+					"item": []
+				},
+				{
+					"name": "Lenguaje",
+					"item": []
+				},
+				{
+					"name": "Ciencias",
+					"item": []
+				},
+				{
+					"name": "Historia",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "5. Creación de Ensayos (15)",
+			"item": []
+		}
+	]
+}

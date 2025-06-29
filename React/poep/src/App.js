@@ -1,25 +1,41 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
-// Páginas del estudiante
-import StudentPage from './pages/Student/StudentPage';
-import RespuestaExamen from './pages/Student/RespuestaExamen';
-import ListaEnsayos from './pages/Student/ListaEnsayos';
-import VerResultado from './pages/Student/VerResultado';
+// Componentes
+import ProtectedRoute from './auth/ProtectedRoute';
+import LoginPage from './pages/LoginPage';
 
-// Páginas del profesor
-import TeacherPage from './pages/Teacher/TeacherPage';
-import SelectSubject from './pages/Teacher/SelectSubject';
-import QuestionBank from './pages/Teacher/QuestionBank';
-import CreateQuestion from './pages/Teacher/CreateQuestion';
-import CreateExam from './pages/Teacher/CreateExam';
+// Páginas del Docente
+import DocenteMenu from './pages/Docente/DocenteMenu';
+import SeleccionarMateria from './pages/Docente/SeleccionarMateria';
+import EnsayosPage from './pages/Docente/EnsayosPage';
+import CrearEnsayoPage from './pages/Docente/CrearEnsayoPage';
+import BancoDePreguntasPage from './pages/Docente/BancoDePreguntasPage';
+import CrearPreguntaPage from './pages/Docente/CrearPreguntaPage';
 
-// Página del analista
-import AnalystPage from './pages/Analyst/AnalystPage';
+// Páginas del Estudiante
+import EstudianteMenu from './pages/Estudiante/EstudianteMenu';
+import EstudianteEnsayosPage from './pages/Estudiante/EstudianteEnsayosPage';
+import RealizarEnsayoPage from './pages/Estudiante/RealizarEnsayoPage';
+import VerResultadoPage from './pages/Estudiante/VerResultadoPage';
+import ResultadosRecientesPage from './pages/Estudiante/ResultadosRecientesPage';
 
-// Tester
-import EndpointTester from './test/EndpointTester';
-import StudentEndpointTester from './test/StudentEndpointTester';
+// Páginas del Administrador
+import UserDashboardPage from './pages/Admin/UserDashboardPage';
+import CreateUserPage from './pages/Admin/CreateUserPage';
+
+const HomeRedirect = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return <Navigate to="/login" />;
+
+    const rol = jwtDecode(token).rol;
+    if (rol === 'docente') return <Navigate to="/docente" />;
+    if (rol === 'estudiante') return <Navigate to="/estudiante" />;
+    // Añadir más roles aquí
+    return <Navigate to="/login" />;
+};
+
 
 function App() {
   return (
@@ -27,25 +43,34 @@ function App() {
       <div style={{ padding: 20 }}>
         <h1>Plataforma PAES</h1>
         <Routes>
-          {/* Estudiante */}
-          <Route path="/student" element={<StudentPage />} />
-          <Route path="/student/exams" element={<ListaEnsayos />} />
-          <Route path="/student/answer/:examId" element={<RespuestaExamen />} />
-          <Route path="/student/result/:resultId" element={<VerResultado />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<HomeRedirect />} />
+          
+          {/* Rutas Protegidas para Docente */}
+          <Route element={<ProtectedRoute roles={['docente']} />}>
+            <Route path="/docente" element={<DocenteMenu />} />
+            <Route path="/docente/seleccionar-materia" element={<SeleccionarMateria />} />
+            <Route path="/docente/ensayos/:materiaId" element={<EnsayosPage />} />
+            <Route path="/docente/crear-ensayo/:materiaId" element={<CrearEnsayoPage />} />
+            <Route path="/docente/banco-preguntas/:materiaId" element={<BancoDePreguntasPage />} />
+            <Route path="/docente/crear-pregunta/:materiaId" element={<CrearPreguntaPage />} />
+          </Route>
 
-          {/* Profesor */}
-          <Route path="/teacher" element={<TeacherPage />} />
-          <Route path="/teacher/create-question" element={<CreateQuestion />} />
-          <Route path="/teacher/create-exam" element={<CreateExam />} />
-          <Route path="/teacher/select-subject" element={<SelectSubject />} />
-          <Route path="/teacher/question-bank/:subject" element={<QuestionBank />} />
+          {/* --- NUEVAS RUTAS PROTEGIDAS PARA ESTUDIANTE --- */}
+          <Route element={<ProtectedRoute roles={['estudiante']} />}>
+            <Route path="/estudiante" element={<EstudianteMenu />} />
+            <Route path="/estudiante/ensayos/:materiaId" element={<EstudianteEnsayosPage />} />
+            <Route path="/estudiante/realizar-ensayo/:ensayoId" element={<RealizarEnsayoPage />} />
+            <Route path="/estudiante/resultado/:resultId" element={<VerResultadoPage />} />
+            <Route path="/estudiante/resultados-recientes" element={<ResultadosRecientesPage />} />
+          </Route>
 
-          {/* Analista */}
-          <Route path="/analyst" element={<AnalystPage />} />
+          <Route path="/unauthorized" element={<h2>No tienes permiso para ver esta página.</h2>} />
+          <Route path="*" element={<Navigate to="/" />} />
 
-          {/* Endpoint tester */}
-          <Route path="/tester" element={<EndpointTester />} />
-          <Route path="/testerStudent" element={<StudentEndpointTester />} />
+          {/* Estas rutas son de acceso público para facilitar las pruebas */}
+          <Route path="/admin/dashboard" element={<UserDashboardPage />} />
+          <Route path="/admin/create-user" element={<CreateUserPage />} />
         </Routes>
       </div>
     </Router>
