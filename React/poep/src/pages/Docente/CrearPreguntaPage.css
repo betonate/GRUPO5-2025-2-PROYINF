@@ -1,0 +1,79 @@
+
+.crear-pregunta-container {
+  background-color: #009bb2;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.crear-pregunta-container h3 {
+  font-size: 2rem;
+  background-color: white;
+  color: black;
+  padding: 20px 40px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.pregunta-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 700px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.pregunta-form input,
+.pregunta-form select,
+.pregunta-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+.pregunta-form .form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pregunta-form button {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.pregunta-form button:hover {
+  transform: scale(1.05);
+}
+
+.pregunta-form .crear-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pregunta-form .volver-btn {
+  background-color: #e0e0e0;
+  color: black;
+}

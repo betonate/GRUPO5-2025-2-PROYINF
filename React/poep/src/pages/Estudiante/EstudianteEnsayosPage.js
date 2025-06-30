@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { api } from '../../services/api';
 import { jwtDecode } from 'jwt-decode';
+import './EstudianteEnsayosPage.css';
+
+
+const materiasDisponibles = [
+    { id: 'mat_m1', nombre: 'Matemáticas M1' },
+    { id: 'mat_m2', nombre: 'Matemáticas M2' },
+    { id: 'len', nombre: 'Lenguaje' },
+    { id: 'cie', nombre: 'Ciencias' },
+    { id: 'his', nombre: 'Historia' }
+];
 
 const EstudianteEnsayosPage = () => {
     const { materiaId } = useParams();
@@ -41,10 +51,9 @@ const EstudianteEnsayosPage = () => {
         fetchData();
     }, [materiaId]);
 
-    // --- NUEVA FUNCIÓN PARA CARGAR DETALLES ---
     const handleVerDetalle = async (ensayo) => {
         setEnsayoSeleccionado(ensayo);
-        setDetallesEnsayo({ preguntas: [], dificultadProm: 0, loading: true }); // Activa el loading del modal
+        setDetallesEnsayo({ preguntas: [], dificultadProm: 0, loading: true });
         try {
             const response = await api.getQuestionsFromExam(ensayo.id_ensayo);
             const preguntas = response.data;
@@ -58,12 +67,12 @@ const EstudianteEnsayosPage = () => {
             });
         } catch (error) {
             console.error("Error al cargar detalles del ensayo:", error);
-            setDetallesEnsayo({ preguntas: [], dificultadProm: 0, loading: false }); // Desactiva el loading en caso de error
+            setDetallesEnsayo({ preguntas: [], dificultadProm: 0, loading: false });
         }
     };
 
     const handleRealizarEnsayo = () => {
-        if(window.confirm(`Estás a punto de comenzar el Ensayo #${ensayoSeleccionado.id_ensayo}. Tienes ${ensayoSeleccionado.tiempo_minutos} minutos. ¿Deseas continuar?`)) {
+        if (window.confirm(`Estás a punto de comenzar el Ensayo #${ensayoSeleccionado.id_ensayo}. Tienes ${ensayoSeleccionado.tiempo_minutos} minutos. ¿Deseas continuar?`)) {
             navigate(`/estudiante/realizar-ensayo/${ensayoSeleccionado.id_ensayo}`);
         }
     };
@@ -72,35 +81,34 @@ const EstudianteEnsayosPage = () => {
         return resultados.filter(r => r.id_ensayo === ensayoId);
     };
 
+    const materia = materiasDisponibles.find(m => m.id === materiaId);
+    const nombreMateria = materia ? materia.nombre : materiaId;
+
     if (loading) return <p>Cargando...</p>;
 
     return (
-        <div>
-            <h2>Ensayos de {materiaId}</h2>
-            <button onClick={() => navigate('/estudiante')}>Atrás</button>
+        <div className="estudiante-ensayos-container">
+            <h2>Ensayos de {nombreMateria}</h2>
 
             <h3>Ensayos Asignados</h3>
             {ensayosDisponibles.length === 0 ? (
                 <p>Aún no hay ensayos asignados para esta materia.</p>
             ) : (
-                <ul style={{ listStyle: 'none', padding: 0 }}>
+                <ul>
                     {ensayosDisponibles.map(ensayo => {
                         const realizados = getResultadosDeEnsayo(ensayo.id_ensayo).length > 0;
                         return (
-                            <li key={ensayo.id_ensayo} style={{ marginBottom: '10px' }}>
+                            <li key={ensayo.id_ensayo}>
                                 <span>Ensayo #{ensayo.id_ensayo} {realizados && '✅'}</span>
-                                <button onClick={() => handleVerDetalle(ensayo)} style={{marginLeft: '10px'}}>
-                                    Ver Detalle
-                                </button>
+                                <button onClick={() => handleVerDetalle(ensayo)}>Ver Detalle</button>
                             </li>
-                        )
+                        );
                     })}
                 </ul>
             )}
 
-            {/* --- MODAL DE DETALLE CORREGIDO --- */}
             {ensayoSeleccionado && (
-                <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)', borderRadius: '8px', zIndex: 1000, minWidth: '300px' }}>
+                <div className="modal-detalle">
                     <h3>Detalle del Ensayo #{ensayoSeleccionado.id_ensayo}</h3>
                     {detallesEnsayo.loading ? (
                         <p>Cargando detalles...</p>
@@ -110,28 +118,32 @@ const EstudianteEnsayosPage = () => {
                             <p><strong>Dificultad Promedio:</strong> {detallesEnsayo.dificultadProm} / 5.0</p>
                             <p><strong>Tiempo:</strong> {ensayoSeleccionado.tiempo_minutos} minutos</p>
                             <p><strong>Asignado por:</strong> {ensayoSeleccionado.nombre_docente}</p>
-                            <button onClick={handleRealizarEnsayo} style={{backgroundColor: '#28a745', color: 'white'}}>Realizar Ensayo</button>
+                            <button onClick={handleRealizarEnsayo} style={{ backgroundColor: '#6c757d', color: 'black' }}>Realizar Ensayo</button>
                         </>
                     )}
-                    <button onClick={() => setEnsayoSeleccionado(null)} style={{marginLeft: '10px'}}>Cerrar</button>
+                    <button onClick={() => setEnsayoSeleccionado(null)}>Cerrar</button>
                 </div>
             )}
-            
-            <hr style={{ margin: '30px 0' }} />
-            
+
+            <hr />
+
             <h3>Resultados Anteriores en esta Materia</h3>
             {resultados.filter(r => ensayosDisponibles.some(e => e.id_ensayo === r.id_ensayo)).length === 0 ? (
                 <p>No tienes resultados anteriores para esta materia.</p>
             ) : (
-                <ul style={{ listStyle: 'none', padding: 0 }}>
+                <ul>
                     {resultados.filter(r => ensayosDisponibles.some(e => e.id_ensayo === r.id_ensayo)).map(resultado => (
-                        <li key={resultado.id_resultado} style={{ marginBottom: '10px' }}>
-                             Resultado #{resultado.id_resultado} (del Ensayo #{resultado.id_ensayo}) - Fecha: {new Date(resultado.fecha).toLocaleDateString()}
-                             <Link to={`/estudiante/resultado/${resultado.id_resultado}`} style={{marginLeft: '10px'}}>Ver Resultado</Link>
+                        <li key={resultado.id_resultado}>
+                            Resultado #{resultado.id_resultado} (del Ensayo #{resultado.id_ensayo}) - Fecha: {new Date(resultado.fecha).toLocaleDateString()}
+                            <Link to={`/estudiante/resultado/${resultado.id_resultado}`}>Ver Resultado</Link>
                         </li>
                     ))}
                 </ul>
             )}
+            <div className="atras-button-container">
+            <button onClick={() => navigate('/estudiante')}>Atrás</button>
+            </div>
+
         </div>
     );
 };

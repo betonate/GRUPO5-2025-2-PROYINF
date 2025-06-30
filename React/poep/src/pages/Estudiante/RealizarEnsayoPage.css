@@ -1,0 +1,104 @@
+/* Fondo general */
+.realizar-ensayo-container {
+  background-color: #009bb2;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Títulos */
+.realizar-ensayo-container h2 {
+  font-size: 2.5rem;
+  background-color: white;
+  color: black;
+  padding: 20px 40px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tiempos */
+.realizar-ensayo-container h3 {
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Contenedor de preguntas (caja blanca) */
+.realizar-ensayo-container .pregunta {
+  background-color: white;
+  color: black;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título de la pregunta */
+.realizar-ensayo-container .pregunta p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Opciones de las preguntas */
+.realizar-ensayo-container .pregunta label {
+  display: block;
+  padding: 5px 0;
+  font-size: 1.1rem;
+}
+
+.realizar-ensayo-container .pregunta input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Botones */
+.realizar-ensayo-container button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(to bottom right, #f1f1f1, #e6e6e6);
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.realizar-ensayo-container button:hover {
+  transform: scale(1.05);
+}
+
+.realizar-ensayo-container button.terminar-ensayo {
+  background-color: #28a745;
+  color: black; /* Texto en negro */
+  padding: 15px 30px; /* Relleno ajustado */
+  font-size: 1.2rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  width: auto; /* Ajusta el ancho al contenido */
+  margin: 0 auto; /* Centra el botón */
+}
+
+.realizar-ensayo-container button.terminar-ensayo:hover {
+  background-color: #218838;
+}
+
+/* Separación del botón de "Terminar Ensayo" */
+.realizar-ensayo-container .button-container {
+  margin-top: auto;
+  text-align: center;
+  margin-bottom: 40px;
+}

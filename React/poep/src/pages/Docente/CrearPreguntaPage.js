@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { useNavigate, useParams } from 'react-router-dom';
+import './CrearPreguntaPage.css';
 
 const materiasDisponibles = [
     { id: 'mat_m1', nombre: 'Matemáticas M1' },
@@ -52,57 +53,54 @@ export default function CrearPreguntaPage() {
     };
 
     return (
-        <div style={{ padding: '1rem' }}>
-            <h3>Crear Nueva Pregunta</h3>
-            <div style={{ display: 'grid', gap: '1rem', maxWidth: '600px' }}>
-                <div>
-                    <label>Materia:</label>
-                    <select name="id_materia" value={formData.id_materia} onChange={handleChange} style={{ width: '100%', padding: '8px' }}>
-                        {materiasDisponibles.map(m => (
-                            <option key={m.id} value={m.id}>{m.nombre}</option>
-                        ))}
-                    </select>
+    <div className="crear-pregunta-container">
+        <h3>Crear Nueva Pregunta</h3>
+        <div className="pregunta-form">
+            <div>
+                <label>Materia:</label>
+                <select name="id_materia" value={formData.id_materia} onChange={handleChange}>
+                    {materiasDisponibles.map(m => (
+                        <option key={m.id} value={m.id}>{m.nombre}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <label>Enunciado:</label>
+                <textarea name="enunciado" value={formData.enunciado} onChange={handleChange} />
+            </div>
+            {['a', 'b', 'c', 'd', 'e'].map((opcion) => (
+                <div key={opcion}>
+                    <label>Opción {opcion.toUpperCase()}:</label>
+                    <input type="text" name={`opcion_${opcion}`} value={formData[`opcion_${opcion}`]} onChange={handleChange} />
                 </div>
-                <div>
-                    <label>Enunciado:</label>
-                    <textarea name="enunciado" value={formData.enunciado} onChange={handleChange} style={{ width: '100%', padding: '8px', minHeight: '80px' }} />
-                </div>
-                {['a', 'b', 'c', 'd', 'e'].map((opcion) => (
-                    <div key={opcion}>
-                        <label>Opción {opcion.toUpperCase()}:</label>
-                        <input type="text" name={`opcion_${opcion}`} value={formData[`opcion_${opcion}`]} onChange={handleChange} style={{ width: '100%', padding: '8px' }} />
-                    </div>
-                ))}
-                <div>
-                    <label>Respuesta Correcta:</label>
-                    <select name="respuesta_correcta" value={formData.respuesta_correcta} onChange={handleChange} style={{ width: '100%', padding: '8px' }}>
-                        <option value="">Seleccione...</option>
-                        {['a', 'b', 'c', 'd', 'e'].map((opcion) => (
-                            <option key={opcion} value={opcion}>Opción {opcion.toUpperCase()}</option>
-                        ))}
-                    </select>
-                </div>
-                <div>
-                    <label>Eje Temático:</label>
-                    <input type="text" name="eje_tematico" value={formData.eje_tematico} onChange={handleChange} style={{ width: '100%', padding: '8px' }} />
-                </div>
-                <div>
-                    <label>Dificultad (1-5):</label>
-                    <input type="number" name="dificultad" min="1" max="5" value={formData.dificultad} onChange={handleChange} style={{ width: '100%', padding: '8px' }} />
-                </div>
-                <div>
-                    <label>URL de Imagen (Opcional):</label>
-                    <input type="text" name="foto_url" value={formData.foto_url} onChange={handleChange} style={{ width: '100%', padding: '8px' }} />
-                </div>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                    <button onClick={handleAdd} style={{ flex: 1, padding: '10px 15px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-                        Crear Pregunta
-                    </button>
-                    <button onClick={() => navigate(`/docente/banco-preguntas/${materiaId}`)} style={{ flex: 1, padding: '10px 15px', backgroundColor: '#6c757d', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-                        Volver
-                    </button>
-                </div>
+            ))}
+            <div>
+                <label>Respuesta Correcta:</label>
+                <select name="respuesta_correcta" value={formData.respuesta_correcta} onChange={handleChange}>
+                    <option value="">Seleccione...</option>
+                    {['a', 'b', 'c', 'd', 'e'].map((opcion) => (
+                        <option key={opcion} value={opcion}>Opción {opcion.toUpperCase()}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <label>Eje Temático:</label>
+                <input type="text" name="eje_tematico" value={formData.eje_tematico} onChange={handleChange} />
+            </div>
+            <div>
+                <label>Dificultad (1-5):</label>
+                <input type="number" name="dificultad" min="1" max="5" value={formData.dificultad} onChange={handleChange} />
+            </div>
+            <div>
+                <label>URL de Imagen (Opcional):</label>
+                <input type="text" name="foto_url" value={formData.foto_url} onChange={handleChange} />
+            </div>
+            <div className="form-buttons">
+                <button className="crear-btn" onClick={handleAdd}>Crear Pregunta</button>
+                <button className="volver-btn" onClick={() => navigate(`/docente/banco-preguntas/${materiaId}`)}>Volver</button>
             </div>
         </div>
+    </div>
     );
+
 }

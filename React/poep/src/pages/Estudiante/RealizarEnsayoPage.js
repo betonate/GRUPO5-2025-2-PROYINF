@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 import { jwtDecode } from 'jwt-decode';
+import './RealizarEnsayoPage.css';
 
 const RealizarEnsayoPage = () => {
     const { ensayoId } = useParams();
@@ -18,7 +19,6 @@ const RealizarEnsayoPage = () => {
     useEffect(() => {
         const fetchEnsayoInfo = async () => {
              try {
-                // Se necesita obtener la info del ensayo para saber el tiempo límite
                 const token = localStorage.getItem('token');
                 const userData = jwtDecode(token);
                 const cursosRes = await api.getCursosByEstudiante(userData.id);
@@ -63,13 +63,11 @@ const RealizarEnsayoPage = () => {
 
     }, [tiempoRestante, loading]);
 
-
     const handleSubmit = async (isTimeout = false) => {
         if (timerRef.current) clearInterval(timerRef.current);
         
         let finalAnswers = {...respuestas};
         
-        // Si se acabó el tiempo, rellena las preguntas sin respuesta
         if (isTimeout) {
             alert("¡Se acabó el tiempo! Se enviarán tus respuestas.");
             preguntas.forEach(p => {
@@ -77,7 +75,6 @@ const RealizarEnsayoPage = () => {
                     const alternativas = ['a', 'b', 'c', 'd', 'e'];
                     const correct = p.respuesta_correcta;
                     const incorrectas = alternativas.filter(alt => alt !== correct);
-                    // Asigna una respuesta incorrecta al azar
                     const randomIncorrecta = incorrectas[Math.floor(Math.random() * incorrectas.length)];
                     finalAnswers[p.id_pregunta] = randomIncorrecta || 'a';
                 }
@@ -93,8 +90,6 @@ const RealizarEnsayoPage = () => {
             const token = localStorage.getItem('token');
             const userData = jwtDecode(token);
 
-            // --- PAYLOAD CORREGIDO ---
-            // Ahora se incluye el id_estudiante del usuario logueado
             const payload = {
                 id_ensayo: parseInt(ensayoId),
                 id_estudiante: userData.id, 
@@ -120,19 +115,20 @@ const RealizarEnsayoPage = () => {
     }
 
     return (
-        <div>
+        <div className="realizar-ensayo-container">
             <h2>Realizando Ensayo #{ensayoId}</h2>
+            
             {tiempoRestante !== null && (
-                <h3 style={{color: tiempoRestante <= 30 ? 'red' : 'black'}}>
+                <h3 style={{ color: tiempoRestante <= 30 ? 'red' : 'black' }}>
                     Tiempo Restante: {Math.floor(tiempoRestante / 60)}:{(tiempoRestante % 60).toString().padStart(2, '0')}
                 </h3>
             )}
             
             {preguntas.map((p, index) => (
-                <div key={p.id_pregunta} style={{marginBottom: '20px', paddingBottom: '15px', borderBottom: '1px solid #ccc'}}>
-                    <p><strong>{index + 1}. {p.enunciado}</strong></p>
+                <div key={p.id_pregunta} className="pregunta">
+                    <p>{index + 1}. {p.enunciado}</p>
                     {['a', 'b', 'c', 'd', 'e'].map(letra => (
-                        <div key={letra} style={{padding: '5px 0'}}>
+                        <div key={letra}>
                             <label>
                                 <input
                                     type="radio"
@@ -148,9 +144,18 @@ const RealizarEnsayoPage = () => {
                 </div>
             ))}
 
-            <button onClick={() => {if(window.confirm("¿Estás seguro de que quieres terminar el ensayo? Tus respuestas serán enviadas.")) handleSubmit(false)}}>
-                Terminar Ensayo
-            </button>
+            <div className="button-container">
+                <button
+                    className="terminar-ensayo"
+                    onClick={() => {
+                        if (window.confirm("¿Estás seguro de que quieres terminar el ensayo? Tus respuestas serán enviadas.")) {
+                            handleSubmit(false);
+                        }
+                    }}
+                >
+                    Terminar Ensayo
+                </button>
+            </div>
         </div>
     );
 };

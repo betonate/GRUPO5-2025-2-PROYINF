@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { api } from '../../services/api';
 import { jwtDecode } from 'jwt-decode';
+import './ResultadosRecientesPage.css'; // Agrega este import para el CSS externo
 
 const ResultadosRecientesPage = () => {
     const navigate = useNavigate();
@@ -14,7 +15,6 @@ const ResultadosRecientesPage = () => {
                 const token = localStorage.getItem('token');
                 const userData = jwtDecode(token);
                 const res = await api.getResultsByStudent(userData.id);
-                // Ordenar por fecha, de más reciente a más antiguo
                 const sortedResults = res.data.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
                 setResultados(sortedResults);
             } catch (error) {
@@ -26,12 +26,12 @@ const ResultadosRecientesPage = () => {
         fetchResultados();
     }, []);
 
-    if (loading) return <p>Cargando resultados...</p>;
+    if (loading) return <p style={{ color: 'white', padding: '40px' }}>Cargando resultados...</p>;
 
     return (
-        <div>
+        <div className="resultados-recientes-container">
             <h2>Resultados de Ensayos Recientes</h2>
-            <button onClick={() => navigate('/estudiante')}>Atrás</button>
+
             {resultados.length === 0 ? (
                 <p>Aún no has completado ningún ensayo.</p>
             ) : (
@@ -39,11 +39,15 @@ const ResultadosRecientesPage = () => {
                     {resultados.map(r => (
                         <li key={r.id_resultado}>
                             Resultado #{r.id_resultado} (del Ensayo #{r.id_ensayo}) - Fecha: {new Date(r.fecha).toLocaleDateString()}
-                            <Link to={`/estudiante/resultado/${r.id_resultado}`} style={{marginLeft: '10px'}}>Ver Detalle</Link>
+                            <Link to={`/estudiante/resultado/${r.id_resultado}`}>Ver Detalle</Link>
                         </li>
                     ))}
                 </ul>
             )}
+
+            <div className="atras-button-container">
+                <button onClick={() => navigate('/estudiante')}>Atrás</button>
+            </div>
         </div>
     );
 };

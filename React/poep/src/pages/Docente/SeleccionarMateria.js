@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { api } from '../../services/api';
 import { jwtDecode } from 'jwt-decode';
+import './SeleccionarMateria.css'; // Importar el archivo CSS
 
 const SeleccionarMateria = () => {
     const [materias, setMaterias] = useState([]);
@@ -42,14 +43,16 @@ const SeleccionarMateria = () => {
     }
 
     return (
-        <div>
-            <h2>Seleccione una Materia</h2>
+        <div className="container-seleccionar-materia">
+            <div className="select-materia-box">
+                Seleccione una Materia
+            </div>
             {materias.map(materia => (
                 <button key={materia.id_materia} onClick={() => navigate(`/docente/${target}/${materia.id_materia}`)}>
                     {materia.nombre_display}
                 </button>
             ))}
-            <button onClick={() => navigate('/docente')}>Volver</button>
+            <button  className="volver-button" onClick={() => navigate('/docente')}>Volver</button>
         </div>
     );
 };

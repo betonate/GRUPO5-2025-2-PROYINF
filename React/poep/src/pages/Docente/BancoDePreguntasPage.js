@@ -27,7 +27,6 @@ const BancoDePreguntasPage = () => {
                 {preguntas.map(p => <PreguntaItem key={p.id_pregunta} pregunta={p} />)}
             </ul>
             <button onClick={() => navigate(`/docente/crear-pregunta/${materiaId}`)}>Crear Pregunta</button>
-            {/* CORRECCIÓN: El botón "Volver" ahora siempre va al menú principal del docente */}
             <button onClick={() => navigate('/docente')}>Volver</button>
         </div>
     );

@@ -40,8 +40,7 @@ const HomeRedirect = () => {
 function App() {
   return (
     <Router>
-      <div style={{ padding: 20 }}>
-        <h1>Plataforma PAES</h1>
+      <div style={{ padding: 0 }}>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomeRedirect />} />

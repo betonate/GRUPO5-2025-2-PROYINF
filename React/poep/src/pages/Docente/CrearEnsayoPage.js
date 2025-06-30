@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 import { jwtDecode } from 'jwt-decode';
 import PreguntaItem from '../../components/PreguntaItem';
+import './CrearEnsayoPage.css'; 
 
 const CrearEnsayoPage = () => {
     const { materiaId } = useParams();
@@ -77,15 +78,14 @@ const CrearEnsayoPage = () => {
         }
     };
 
-
     return (
-        <div>
-            <h2>Crear Nuevo Ensayo de {materiaId}</h2>
+        <div className="crear-ensayo-container">
+            <h2>Nuevo Ensayo </h2>
 
             {step === 1 && (
                 <div>
                     <h3>Paso 1: Seleccione las Preguntas</h3>
-                    <ul style={{ padding: 0 }}>
+                    <ul>
                         {bancoPreguntas.map(p => (
                             <PreguntaItem 
                                 key={p.id_pregunta}

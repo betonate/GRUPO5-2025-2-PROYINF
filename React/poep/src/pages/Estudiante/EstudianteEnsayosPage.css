@@ -1,0 +1,97 @@
+/* Fondo general */
+.estudiante-ensayos-container {
+  background-color: #009bb2;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Títulos */
+.estudiante-ensayos-container h2 {
+  font-size: 2.5rem;
+  background-color: white;
+  color: black;
+  padding: 20px 40px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Botones */
+.estudiante-ensayos-container button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(to bottom right, #f1f1f1, #e6e6e6);
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.estudiante-ensayos-container button:hover {
+  transform: scale(1.05);
+}
+
+/* Lista de ensayos y resultados */
+.estudiante-ensayos-container ul {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.estudiante-ensayos-container li {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 15px 25px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Modal */
+.modal-detalle {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  min-width: 320px;
+  max-width: 90%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: black;
+}
+
+.modal-detalle h3 {
+  margin-top: 0;
+}
+
+.modal-detalle button {
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.estudiante-ensayos-container h3 {
+  font-size: 2.4rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.atras-button-container {
+  margin-top: auto;
+  margin-bottom: 40px; /* Separación del contenido superior */
+  text-align: center;
+}

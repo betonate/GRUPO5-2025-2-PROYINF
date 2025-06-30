@@ -1,0 +1,67 @@
+
+.container-seleccionar-materia {
+  background-color: #009bb2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.volver-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease;
+}
+
+.volver-button:hover {
+  background-color: #bb2d3b;
+}
+.select-materia-box {
+  width: 670px;              
+  height: 120px;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border-radius: 30px;     
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+   margin-top: -250px; 
+  margin-bottom: 90px; 
+}
+
+h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.container-seleccionar-materia button {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  margin: 10px;
+  border: none;
+  background: linear-gradient(to bottom right, #f1f1f1, #e6e6e6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  color: black;
+}
+
+.container-seleccionar-materia button:hover {
+  transform: scale(1.05);
+}

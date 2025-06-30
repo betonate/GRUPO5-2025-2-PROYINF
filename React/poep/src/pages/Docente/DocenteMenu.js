@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import './DocenteMenu.css';
 
 const DocenteMenu = () => {
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ const DocenteMenu = () => {
     }
     
     const userData = jwtDecode(token);
+    console.log(userData);
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -20,23 +22,40 @@ const DocenteMenu = () => {
     };
 
     return (
-        <div>
-            <h2>Menú Docente</h2>
-            <p>Bienvenido, {userData.nombre}</p>
-            {/* Aquí podrías mostrar Institución y Cursos si los obtienes */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
-                <button onClick={() => navigate('/docente/seleccionar-materia', { state: { target: 'ensayos' } })}>
-                    Ensayos
-                </button>
-                <button onClick={() => navigate('/docente/seleccionar-materia', { state: { target: 'banco-preguntas' } })}>
-                    Banco de preguntas
-                </button>
-                <button onClick={handleLogout} style={{ backgroundColor: '#dc3545', color: 'white' }}>
-                    Cerrar Sesión
-                </button>
-            </div>
+    <div className="container">
+        <div className="menu-box">Menú</div>
+
+        <div className="docente-info">
+            <p><strong>{userData.nombre}</strong></p>
+            <p>{userData.id}</p>
+            <p>{userData.institucion}</p>
         </div>
-    );
+
+      <div className="button-container">
+        <button
+          className="button-style"
+          onClick={() =>
+            navigate('/docente/seleccionar-materia', { state: { target: 'ensayos' } })
+          }
+        >
+          Ensayos
+        </button>
+        <button
+          className="button-style"
+          onClick={() =>
+            navigate('/docente/seleccionar-materia', { state: { target: 'banco-preguntas' } })
+          }
+        >
+          Banco de preguntas
+        </button>
+      </div>
+
+      <button onClick={handleLogout} className="logout-button">
+        Cerrar Sesión
+      </button>
+    </div>
+  );
+
 };
 
 export default DocenteMenu;

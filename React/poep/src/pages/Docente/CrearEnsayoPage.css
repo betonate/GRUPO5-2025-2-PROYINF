@@ -1,0 +1,83 @@
+/* Fondo general */
+.crear-ensayo-container {
+  background-color: #009bb2;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título principal */
+.crear-ensayo-container h2 {
+  font-size: 2.5rem;
+  background-color: white;
+  color: black;
+  padding: 30px 50px;
+  border-radius: 30px;
+  margin-bottom: 60px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-left: -60px;
+}
+
+/* Título de pasos */
+.crear-ensayo-container h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Lista de preguntas/cursos */
+.crear-ensayo-container ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.crear-ensayo-container li {
+  background-color: #f1f1f1;
+  color: black;
+  margin: 10px 0;
+  padding: 15px 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 84%;
+}
+
+/* Contenedor de input tiempo */
+.crear-ensayo-container input[type="number"] {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  margin: 10px 0 20px 0;
+  font-size: 1rem;
+  width: 100px;
+}
+
+/* Botones */
+.crear-ensayo-container button {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to bottom right, #f1f1f1, #e6e6e6);
+  color: black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.crear-ensayo-container button:hover {
+  transform: scale(1.05);
+}
+
+.crear-ensayo-container button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
