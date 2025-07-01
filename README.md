@@ -19,6 +19,15 @@ Este es el repositorio del grupo 9, cuyos integrantes son:
 
 [Video](https://youtu.be/H5h_zy9Y0XM) de la presentación del **prototipo inicial**.
 
+
+## Vista Directivo Funcional
+
+[Video](https://youtu.be/40oafag3Wac) de la vista del Directo Funcional**.
+
+# Video Resultado Final del Sistema Implementado
+
+[Video](https://youtu.be/Csjc_EWqyhc) del resultado Final del Sistema Implementado**.
+
 ## Prototipos no funcionales
 
 La estructura de las páginas está fuertemente basada en los prototipos no funcionales, realizadas en la plataforma Canva, a los que se puede acceder con los siguientes links:
@@ -233,5 +242,3 @@ http://localhost:3000/admin/dashboard
 
 Luego, con ir a la página principal se puede encontrar la vista del docente y del usuario operativa (dependiendo de cual se loggee).
 
-## Vista Directivo Funcional
-https://youtu.be/40oafag3Wac
