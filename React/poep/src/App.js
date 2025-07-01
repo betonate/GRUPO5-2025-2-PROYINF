@@ -25,6 +25,10 @@ import ResultadosRecientesPage from './pages/Estudiante/ResultadosRecientesPage'
 import UserDashboardPage from './pages/Admin/UserDashboardPage';
 import CreateUserPage from './pages/Admin/CreateUserPage';
 
+// Páginas del Directivo
+import DirectivoDashboardPage from './pages/Analyst/DirectivoDashboardPage';
+import DirectivoVerEnsayoPage from './pages/Analyst/DirectivoVerEnsayoPage';
+
 const HomeRedirect = () => {
     const token = localStorage.getItem('token');
     if (!token) return <Navigate to="/login" />;
@@ -70,6 +74,8 @@ function App() {
           {/* Estas rutas son de acceso público para facilitar las pruebas */}
           <Route path="/admin/dashboard" element={<UserDashboardPage />} />
           <Route path="/admin/create-user" element={<CreateUserPage />} />
+          <Route path="/Directivo/dashboard" element={<DirectivoDashboardPage />} />
+          <Route path="/Directivo/ensayo/:id_ensayo/ver" element={<DirectivoVerEnsayoPage />} />
         </Routes>
       </div>
     </Router>
