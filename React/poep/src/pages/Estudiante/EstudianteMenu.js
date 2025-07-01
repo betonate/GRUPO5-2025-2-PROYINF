@@ -34,7 +34,7 @@ const EstudianteMenu = () => {
       <div className="docente-info">
         <p><strong>{userData.nombre}</strong></p>
         <p>{userData.id}</p>
-         <p>{userData.institucion}</p>
+         <p>{"Colegio San Juan"}</p>
       </div>
 
       <div className="button-container">
