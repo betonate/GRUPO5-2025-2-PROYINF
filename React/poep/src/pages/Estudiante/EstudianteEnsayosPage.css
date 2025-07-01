@@ -1,4 +1,4 @@
-/* Fondo general */
+
 .estudiante-ensayos-container {
   background-color: #009bb2;
   min-height: 100vh;
@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-/* Títulos */
+
 .estudiante-ensayos-container h2 {
   font-size: 2.5rem;
   background-color: white;
@@ -20,7 +20,7 @@
 }
 
 
-/* Botones */
+
 .estudiante-ensayos-container button {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -39,7 +39,7 @@
   transform: scale(1.05);
 }
 
-/* Lista de ensayos y resultados */
+
 .estudiante-ensayos-container ul {
   list-style: none;
   padding: 0;
@@ -59,7 +59,7 @@
   justify-content: space-between;
 }
 
-/* Modal */
+
 .modal-detalle {
   position: fixed;
   top: 50%;
@@ -92,6 +92,6 @@
 
 .atras-button-container {
   margin-top: auto;
-  margin-bottom: 40px; /* Separación del contenido superior */
+  margin-bottom: 40px; 
   text-align: center;
 }
