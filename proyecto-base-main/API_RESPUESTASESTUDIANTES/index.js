@@ -224,7 +224,84 @@ app.get('/directivo/ensayo/:id_ensayo/resultados', (req, res) => {
 
 
 
+// Obtener estadísticas de los ensayos creados por un docente específico
+app.get('/estadisticas/docente/:id_docente', (req, res) => {
+    const { id_docente } = req.params;
+    const { materia } = req.query; // Para filtrar por materia en la vista del docente
 
+    // Esta consulta es compleja:
+    // 1. Selecciona los ensayos creados por el docente.
+    // 2. Cuenta los resultados (estudiantes que han respondido).
+    // 3. Calcula el promedio de puntaje SOLO de los estudiantes que pertenecen a los cursos que el docente imparte.
+    let sql = `
+        SELECT
+            e.id_ensayo,
+            e.id_materia,
+            mat.nombre_display AS materia,
+            (SELECT COUNT(*) FROM Resultado WHERE id_ensayo = e.id_ensayo) AS total_respondidos,
+            (SELECT ROUND(AVG(r.puntaje), 1) 
+             FROM Resultado r 
+             WHERE r.id_ensayo = e.id_ensayo AND r.id_estudiante IN (
+                SELECT uc.id_usuario FROM BD09_USUARIOS.Usuario_Curso uc WHERE uc.id_curso IN (
+                    SELECT id_curso FROM BD09_USUARIOS.Usuario_Curso WHERE id_usuario = ?
+                )
+             )
+            ) AS promedio
+        FROM BD09_PREGUNTAS.Ensayo e
+        JOIN BD09_USUARIOS.Materia mat ON e.id_materia = mat.id_materia
+        WHERE e.id_docente = ?
+    `;
+
+    const params = [id_docente, id_docente];
+
+    if (materia) {
+        sql += ' AND e.id_materia = ?';
+        params.push(materia);
+    }
+
+    db.query(sql, params, (err, rows) => {
+        if (err) {
+            console.error('Error al obtener estadísticas de docente:', err);
+            return res.status(500).json({ error: 'Error al obtener estadísticas' });
+        }
+        res.json(rows);
+    });
+});
+
+// Obtener los resultados detallados de un ensayo para un docente (solo de sus alumnos)
+app.get('/docente/ensayo/:id_ensayo/resultados', (req, res) => {
+    const { id_ensayo } = req.params;
+    // Asumimos que el frontend enviará el ID del docente para validar permisos
+    const { id_docente } = req.query; 
+
+    if (!id_docente) {
+        return res.status(401).json({ error: 'No autorizado' });
+    }
+
+    const sql = `
+        SELECT
+            u.nombre_completo AS estudiante,
+            cur.nombre_display AS curso,
+            r.puntaje,
+            r.tiempo_resolucion AS tiempo,
+            DATE_FORMAT(r.fecha, '%Y-%m-%d') AS fecha
+        FROM Resultado r
+        JOIN BD09_USUARIOS.Usuario u ON r.id_estudiante = u.id_usuario
+        JOIN BD09_USUARIOS.Usuario_Curso uc ON u.id_usuario = uc.id_usuario
+        JOIN BD09_USUARIOS.Curso cur ON uc.id_curso = cur.id_curso
+        WHERE r.id_ensayo = ? AND cur.id_curso IN (
+            SELECT id_curso FROM BD09_USUARIOS.Usuario_Curso WHERE id_usuario = ?
+        )
+    `;
+
+    db.query(sql, [id_ensayo, id_docente], (err, rows) => {
+        if (err) {
+            console.error('Error al obtener resultados para docente:', err);
+            return res.status(500).json({ error: 'Error al obtener resultados' });
+        }
+        res.json(rows);
+    });
+});
 
 
 app.listen(PORT, () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // 1. Importar useNavigate
 import './DirectivoDashboardPage.css';
 
 const DirectivoDashboardPage = () => {
@@ -14,6 +14,7 @@ const DirectivoDashboardPage = () => {
     maxPromedio: ''
   });
   const [orden, setOrden] = useState('');
+  const navigate = useNavigate(); // 2. Inicializar useNavigate
 
   const [opcionesFiltro, setOpcionesFiltro] = useState({
     colegios: [],
@@ -66,9 +67,18 @@ const DirectivoDashboardPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orden]);
 
+  // 3. Crear la función para manejar el logout
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
   return (
     <div className="directivo-container">
-      <h1 className="text-3xl font-bold mb-6 text-white">Estadísticas Generales de Ensayos</h1>
+      <div className="header-container">
+        <h1 className="text-3xl font-bold text-white">Estadísticas Generales de Ensayos</h1>
+        {/* Botón de logout movido */}
+      </div>
 
       <div className="filtros-grid">
         <select name="colegio" value={filtros.colegio} onChange={handleChange} className="filtro-select">
@@ -151,6 +161,15 @@ const DirectivoDashboardPage = () => {
           ))}
         </tbody>
       </table>
+
+      {/* 4. Botón de Cerrar Sesión movido aquí abajo */}
+      <button 
+        className="logout-button" 
+        onClick={handleLogout} 
+        style={{ marginTop: '20px' }}
+      >
+        Cerrar Sesión
+      </button>
     </div>
   );
 };

@@ -13,6 +13,7 @@ import EnsayosPage from './pages/Docente/EnsayosPage';
 import CrearEnsayoPage from './pages/Docente/CrearEnsayoPage';
 import BancoDePreguntasPage from './pages/Docente/BancoDePreguntasPage';
 import CrearPreguntaPage from './pages/Docente/CrearPreguntaPage';
+import DocenteVerEnsayoPage from './pages/Docente/DocenteVerEnsayoPage';
 
 // Páginas del Estudiante
 import EstudianteMenu from './pages/Estudiante/EstudianteMenu';
@@ -36,7 +37,7 @@ const HomeRedirect = () => {
     const rol = jwtDecode(token).rol;
     if (rol === 'docente') return <Navigate to="/docente" />;
     if (rol === 'estudiante') return <Navigate to="/estudiante" />;
-    // Añadir más roles aquí
+    if (rol === 'directivo') return <Navigate to="/Directivo/dashboard" />;
     return <Navigate to="/login" />;
 };
 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/docente/crear-ensayo/:materiaId" element={<CrearEnsayoPage />} />
             <Route path="/docente/banco-preguntas/:materiaId" element={<BancoDePreguntasPage />} />
             <Route path="/docente/crear-pregunta/:materiaId" element={<CrearPreguntaPage />} />
+            <Route path="/docente/ensayo/:id_ensayo/ver" element={<DocenteVerEnsayoPage />} />
           </Route>
 
           {/* --- NUEVAS RUTAS PROTEGIDAS PARA ESTUDIANTE --- */}
@@ -71,11 +73,17 @@ function App() {
           <Route path="/unauthorized" element={<h2>No tienes permiso para ver esta página.</h2>} />
           <Route path="*" element={<Navigate to="/" />} />
 
+          {/* --- NUEVAS RUTAS PROTEGIDAS PARA DIRECTIVO --- */}
+          <Route element={<ProtectedRoute roles={['directivo']} />}></Route>
+            <Route path="/Directivo/dashboard" element={<DirectivoDashboardPage />} />
+            <Route path="/Directivo/ensayo/:id_ensayo/ver" element={<DirectivoVerEnsayoPage />} />
+
+          <Route path="/unauthorized" element={<h2>No tienes permiso para ver esta página.</h2>} />
+          <Route path="*" element={<Navigate to="/" />} />
+
           {/* Estas rutas son de acceso público para facilitar las pruebas */}
           <Route path="/admin/dashboard" element={<UserDashboardPage />} />
           <Route path="/admin/create-user" element={<CreateUserPage />} />
-          <Route path="/Directivo/dashboard" element={<DirectivoDashboardPage />} />
-          <Route path="/Directivo/ensayo/:id_ensayo/ver" element={<DirectivoVerEnsayoPage />} />
         </Routes>
       </div>
     </Router>

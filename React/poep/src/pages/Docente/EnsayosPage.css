@@ -1,7 +1,7 @@
 /* Fondo y estructura general */
 .ensayos-container {
   background-color: #009bb2;
-  height: 100vh;
+  min-height: 100vh;
   padding: 40px 20px;
   box-sizing: border-box;
   color: white;
@@ -21,27 +21,58 @@
   margin-bottom: 40px;
 }
 
-
-.ensayos-container ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 40px;
+/* --- NUEVOS ESTILOS PARA LA TABLA --- */
+.ensayos-tabla {
   width: 100%;
-  max-width: 600px;
-}
-
-.ensayos-container li {
-  background-color: #f1f1f1;
+  max-width: 900px;
+  border-collapse: collapse;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  background-color: white;
   color: black;
-  margin: 10px 0;
-  padding: 15px 25px;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 
-/* Botones */
+.ensayos-tabla th,
+.ensayos-tabla td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ensayos-tabla th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.ensayos-tabla tr:hover {
+  background-color: #f9f9f9;
+}
+
+.ver-detalle-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ver-detalle-btn:hover {
+  background-color: #218838;
+}
+
+
+/* Botones del footer */
+.botones-footer {
+    display: flex;
+    gap: 20px;
+}
+
 .ensayos-container button {
-  margin: 10px;
   padding: 20px 35px;
   font-size: 1.5rem;
   border-radius: 30px;
@@ -65,5 +96,3 @@
 .ensayos-container .volver-button:hover {
   background-color: #f1f1f1;
 }
-
-

@@ -22,6 +22,8 @@ export const api = {
   getMateriasByDocente: (docenteId) => axios.get(`${API_USUARIOS}/docentes/${docenteId}/materias`, authHeaders()),
   getCursosByDocente: (docenteId) => axios.get(`${API_USUARIOS}/docentes/${docenteId}/cursos`, authHeaders()),
   getEnsayosByDocente: (docenteId, materiaId) => axios.get(`${API_PREGUNTAS}/ensayos/${docenteId}?materia=${materiaId}`, authHeaders()),
+  getEstadisticasDocente: (docenteId, materiaId) => axios.get(`${API_RESPUESTAS}/estadisticas/docente/${docenteId}?materia=${materiaId}`, authHeaders()),
+  getEnsayoResultadosDocente: (ensayoId, docenteId) => axios.get(`${API_RESPUESTAS}/docente/ensayo/${ensayoId}/resultados?id_docente=${docenteId}`, authHeaders()),
   createExam: (examData) => axios.post(`${API_PREGUNTAS}/ensayos`, examData, authHeaders()),
 
   // Estudiante
