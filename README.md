@@ -232,3 +232,6 @@ http://localhost:3000/admin/dashboard
 ```
 
 Luego, con ir a la página principal se puede encontrar la vista del docente y del usuario operativa (dependiendo de cual se loggee).
+
+## Vista Directivo Funcional
+https://youtu.be/40oafag3Wac
