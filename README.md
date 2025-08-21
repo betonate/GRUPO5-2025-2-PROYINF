@@ -1,4 +1,4 @@
-# GRUPO9-2025-PROYINF
+# GRUPO9-2025-1-PROYINF
 
 
 Este es el repositorio del grupo 9, cuyos integrantes son:
@@ -10,6 +10,17 @@ Este es el repositorio del grupo 9, cuyos integrantes son:
 * **Tutor**: Paula Castillo
 
 ## [Wiki](https://gitlab.com/benjax79/grupo9-2025-proyinf/-/wikis/home)
+
+# GRUPO5-2025-2-PROYINF
+
+
+Este es el repositorio del grupo 5, cuyos integrantes son:
+
+* Alberto Oñate  - 202173103-2
+* Sebastian Castillo -
+* Daniel Sáez - 202273613-5
+* Vicente Carvajal -
+* **Tutor**: Sebastian Salgado
 
 ## Presentación cliente
 
