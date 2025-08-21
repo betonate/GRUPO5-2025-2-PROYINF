@@ -17,7 +17,7 @@ Este es el repositorio del grupo 9, cuyos integrantes son:
 Este es el repositorio del grupo 5, cuyos integrantes son:
 
 * Alberto Oñate  - 202173103-2
-* Sebastian Castillo -
+* Sebastian Castillo - 202273583-k
 * Daniel Sáez - 202273613-5
 * Vicente Carvajal -
 * **Tutor**: Sebastian Salgado
