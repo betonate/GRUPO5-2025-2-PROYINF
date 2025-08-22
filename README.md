@@ -13,7 +13,7 @@ Este era el repositorio del grupo 9, cuyos integrantes son:
 # GRUPO5-2025-2-PROYINF
 
 
-Este es el repositorio del grupo 5, cuyos integrantes son:
+Ahora este es el repositorio del grupo 5, cuyos integrantes son:
 
 * Alberto Oñate  - 202173103-2
 * Sebastian Castillo - 202273583-k
