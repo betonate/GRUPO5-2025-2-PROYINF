@@ -1,7 +1,7 @@
 # GRUPO9-2025-1-PROYINF
 
 
-Este es el repositorio del grupo 9, cuyos integrantes son:
+Este era el repositorio del grupo 9, cuyos integrantes son:
 
 * Benjamin Abde  - 202130021-k
 * Joaquín Belmar - 202330003-9
