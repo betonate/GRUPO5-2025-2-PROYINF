@@ -254,12 +254,3 @@ http://localhost:3000/admin/dashboard
 ```
 
 Luego, con ir a la página principal se puede encontrar la vista del docente y del usuario operativa (dependiendo de cual se loggee).
-
-## Autoevaluación del estado del proyecto.
-
-
-## Alphas más importantes.
-
-## Riesgos identificados.
-
-## Autoevaluación del estado del proyecto.
