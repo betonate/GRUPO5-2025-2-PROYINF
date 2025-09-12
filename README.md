@@ -240,6 +240,7 @@ Así, para poblar las tablas se debe:
 ```
 npm install axios
 npm install jwt-decode
+npm install recharts
 ```
 3. Iniciar la Aplicación
 ```
