@@ -14,6 +14,7 @@ import CrearEnsayoPage from './pages/Docente/CrearEnsayoPage';
 import BancoDePreguntasPage from './pages/Docente/BancoDePreguntasPage';
 import CrearPreguntaPage from './pages/Docente/CrearPreguntaPage';
 import DocenteVerEnsayoPage from './pages/Docente/DocenteVerEnsayoPage';
+import DocenteEstadisticasEnsayoPage from './pages/Docente/DocenteEstadisticasEnsayoPage';
 
 // Páginas del Estudiante
 import EstudianteMenu from './pages/Estudiante/EstudianteMenu';
@@ -59,6 +60,7 @@ function App() {
             <Route path="/docente/banco-preguntas/:materiaId" element={<BancoDePreguntasPage />} />
             <Route path="/docente/crear-pregunta/:materiaId" element={<CrearPreguntaPage />} />
             <Route path="/docente/ensayo/:id_ensayo/ver" element={<DocenteVerEnsayoPage />} />
+            <Route path="/docente/estadisticas" element={<DocenteEstadisticasEnsayoPage />} />
           </Route>
 
           {/* --- NUEVAS RUTAS PROTEGIDAS PARA ESTUDIANTE --- */}
