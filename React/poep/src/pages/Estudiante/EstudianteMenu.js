@@ -53,6 +53,13 @@ const EstudianteMenu = () => {
         >
           Ver Ensayos Recientes
         </button>
+        <button
+          className="button-style"
+          onClick={() => navigate('/estudiante/foro')}
+        >
+          Foro de Preguntas
+        </button>
+
       </div>
 
       <button className="logout-button" onClick={handleLogout}>
