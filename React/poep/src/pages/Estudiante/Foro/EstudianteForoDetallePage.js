@@ -72,7 +72,7 @@ const EstudianteForoDetallePage = () => {
         <h1>Foro de Preguntas</h1>
         <div className="foro-card">
           <div className="foro-empty">Tópico no encontrado.</div>
-          <button onClick={() => navigate(`/${rol}/foro`)}>Volver</button> {/* 👈 volver por rol */}
+          <button onClick={() => navigate(`/${rol}/foro`)}>Volver</button> 
         </div>
       </div>
     );
@@ -100,7 +100,7 @@ const EstudianteForoDetallePage = () => {
         </div>
         <p className="foro-topic-contenido">{topic.contenido}</p>
         <div style={{ marginTop: 10 }}>
-          <button onClick={() => navigate(`/${rol}/foro`)}>Volver</button> {/* 👈 volver por rol */}
+          <button onClick={() => navigate(`/${rol}/foro`)}>Volver</button> 
         </div>
       </section>
 
