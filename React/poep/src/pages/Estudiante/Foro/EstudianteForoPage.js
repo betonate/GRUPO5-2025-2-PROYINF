@@ -1,6 +1,7 @@
 // src/pages/Estudiante/EstudianteForoPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 import { foro } from '../../../services/foro';
 import { api } from '../../../services/api';
 import './Foro.css';
@@ -14,13 +15,16 @@ const EstudianteForoPage = () => {
   const [nuevo, setNuevo] = useState({ titulo: '', contenido: '', id_materia: '' });
   const [error, setError] = useState('');
 
+  const token = localStorage.getItem('token');
+  const rol = token ? (jwtDecode(token)?.rol ?? 'estudiante') : 'estudiante';
+
   useEffect(() => {
     let cancel = false;
     (async () => {
       setLoading(true);
       setError('');
       try {
-        //Tópicos desde foro (mock/real) + Materias desde API real
+        // Tópicos desde foro (mock/real) + Materias desde API real
         const [t, m] = await Promise.all([foro.getTopics(), api.getMaterias()]);
         if (!cancel) {
           setTopics(t.data || []);
@@ -63,7 +67,7 @@ const EstudianteForoPage = () => {
     <div className="foro-container">
       <h1>Foro de Preguntas</h1>
 
-      {/* crear nuevo tópico */}
+      {/* crear nuevo tópico (si quieres, puedes limitarlo a estudiantes con: rol === 'estudiante' ) */}
       <section className="foro-card">
         <h2>Crear nuevo tópico</h2>
         <form className="foro-form" onSubmit={createTopic}>
@@ -98,7 +102,7 @@ const EstudianteForoPage = () => {
         </form>
       </section>
 
-      {/* barra busqueda */}
+      {/* barra búsqueda */}
       <div className="foro-card" style={{ maxWidth: 900, margin: '0 auto 25px' }}>
         <div className="foro-toolbar" style={{ justifyContent: 'space-between' }}>
           <input
@@ -131,7 +135,7 @@ const EstudianteForoPage = () => {
               <li
                 key={t.id_topico}
                 className="foro-item"
-                onClick={() => navigate(`/estudiante/foro/${t.id_topico}`)}
+                onClick={() => navigate(`/${rol}/foro/${t.id_topico}`)}
                 title={t.titulo}
               >
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 4, minWidth: 0 }}>

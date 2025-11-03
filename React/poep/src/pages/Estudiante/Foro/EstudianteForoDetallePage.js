@@ -1,12 +1,16 @@
 // src/pages/Estudiante/EstudianteForoDetallePage.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 import { foro } from '../../../services/foro';
 import './Foro.css';
 
 const EstudianteForoDetallePage = () => {
   const { idTopico } = useParams();
   const navigate = useNavigate();
+
+  const token = localStorage.getItem('token');
+  const rol = token ? (jwtDecode(token)?.rol ?? 'estudiante') : 'estudiante';
 
   const [topic, setTopic] = useState(null);
   const [replies, setReplies] = useState([]);
@@ -68,7 +72,7 @@ const EstudianteForoDetallePage = () => {
         <h1>Foro de Preguntas</h1>
         <div className="foro-card">
           <div className="foro-empty">Tópico no encontrado.</div>
-          <button onClick={() => navigate(-1)}>Volver</button>
+          <button onClick={() => navigate(`/${rol}/foro`)}>Volver</button> {/* 👈 volver por rol */}
         </div>
       </div>
     );
@@ -87,7 +91,6 @@ const EstudianteForoDetallePage = () => {
           {topic.materia_nombre && <span className="foro-badge">{topic.materia_nombre}</span>}
           <span style={{ margin: '0 8px' }}>•</span>
           <span>
-            {/**/}
             {topic.creado_en
               ? new Date(topic.creado_en).toLocaleString()
               : (topic.ultima_actualizacion
@@ -97,7 +100,7 @@ const EstudianteForoDetallePage = () => {
         </div>
         <p className="foro-topic-contenido">{topic.contenido}</p>
         <div style={{ marginTop: 10 }}>
-          <button onClick={() => navigate(-1)}>Volver</button>
+          <button onClick={() => navigate(`/${rol}/foro`)}>Volver</button> {/* 👈 volver por rol */}
         </div>
       </section>
 
