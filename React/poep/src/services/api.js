@@ -36,7 +36,7 @@ export const api = {
 
   // Administración
   getUsuarios: () => axios.get(`${API_USUARIOS}/usuarios`,authHeaders()),
-  setMateriaUsuario: (materiaData) => axios.post(`${API_USUARIOS}/usuarios/materias`, materiaData,authHeaders())
+  setMateriaUsuario: (materiaData) => axios.post(`${API_USUARIOS}/usuarios/materias`, materiaData,authHeaders()),
 
   // estadísticas a nivel docente (servicio RESPUESTAS)
   getEstadisticasDocente: (docenteId, materiaId) =>
