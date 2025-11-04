@@ -23,7 +23,6 @@
 }
 .empty-box button:hover { background: #1e4fcf; }
 
-/* Layout sidebar + main (si no lo tenías ya) */
 .estadisticas-page.layout {
   display: grid;
   grid-template-columns: 300px 1fr;

@@ -123,12 +123,13 @@
 }
 
 .foro-topic h2 {
+    color: #000000;
   margin-bottom: 10px;
 }
 
 .foro-topic-meta {
   font-size: 0.9rem;
-  color: #333;
+  color: #000000;
   margin-bottom: 15px;
 }
 

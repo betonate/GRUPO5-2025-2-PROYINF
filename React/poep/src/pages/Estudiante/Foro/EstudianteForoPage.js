@@ -165,7 +165,7 @@ const EstudianteForoPage = () => {
       </section>
 
       <div className="foro-atras">
-        <button onClick={() => navigate(-1)}>Atrás</button>
+        <button onClick={() => navigate("/foro")}>Atrás</button>
       </div>
     </div>
   );

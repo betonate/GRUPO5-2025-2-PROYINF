@@ -348,31 +348,42 @@ app.get('/api/estadisticas/ensayos', (req, res) => {
 // 2) Estadísticas completas de un ensayo (resumen + histograma + preguntas)
 app.get('/api/ensayos/:id/estadisticas', (req, res) => {
   const ensayoId = Number(req.params.id);
-  if (!Number.isFinite(ensayoId)) return res.status(400).json({ error: 'ID de ensayo inválido' });
+  if (!Number.isFinite(ensayoId)) {
+    return res.status(400).json({ error: 'ID de ensayo inválido' });
+  }
 
+  // 1) Cantidad de preguntas del ensayo
+  const sqlNumPreguntas = `
+    SELECT COUNT(*) AS nPreg
+    FROM ${DB_PREG}.Ensayo_Pregunta
+    WHERE id_ensayo = ?
+  `;
+
+  // Resumen en aciertos
   const sqlResumen = `
     SELECT
       COUNT(*)                       AS n,
-      ROUND(AVG(puntaje), 1)         AS promedio,
-      MIN(puntaje)                   AS min,
-      MAX(puntaje)                   AS max,
-      ROUND(STDDEV_SAMP(puntaje), 1) AS desv
+      ROUND(AVG(puntaje), 3)         AS prom_aciertos,
+      MIN(puntaje)                   AS min_aciertos,
+      MAX(puntaje)                   AS max_aciertos,
+      ROUND(STDDEV_SAMP(puntaje), 3) AS desv_aciertos
     FROM ${DB_RESP}.Resultado
     WHERE id_ensayo = ? AND puntaje IS NOT NULL
   `;
 
+  // Lista de puntajes en aciertos (para histograma)
   const sqlPuntajes = `
     SELECT puntaje
     FROM ${DB_RESP}.Resultado
     WHERE id_ensayo = ? AND puntaje IS NOT NULL
-    ORDER BY puntaje
   `;
 
+  // Por pregunta (igual que tenías)
   const sqlPreguntas = `
     SELECT
-      ep.id_pregunta                                      AS pregunta_id,
-      p.enunciado                                         AS enunciado,
-      COUNT(rta.id_resultado)                             AS total,
+      ep.id_pregunta AS pregunta_id,
+      p.enunciado    AS enunciado,
+      COUNT(rta.id_resultado) AS total,
       SUM(CASE WHEN LOWER(rta.respuesta_dada) = LOWER(p.respuesta_correcta) THEN 1 ELSE 0 END) AS correctas,
       SUM(CASE WHEN LOWER(rta.respuesta_dada) <> LOWER(p.respuesta_correcta) THEN 1 ELSE 0 END) AS incorrectas
     FROM ${DB_PREG}.Ensayo_Pregunta ep
@@ -385,61 +396,100 @@ app.get('/api/ensayos/:id/estadisticas', (req, res) => {
     ORDER BY ep.id_pregunta ASC
   `;
 
-  db.query(sqlResumen, [ensayoId], (e1, r1) => {
-    if (e1) {
-      console.error('Error resumen:', e1);
-      return res.status(500).json({ error: 'Error al obtener resumen' });
-    }
-    const resumen = r1?.[0] || { n: 0, promedio: null, min: null, max: null, desv: null };
-
-    db.query(sqlPuntajes, [ensayoId], (e2, r2) => {
-      if (e2) {
-        console.error('Error puntajes:', e2);
-        return res.status(500).json({ error: 'Error al obtener distribución' });
+  // Helper: bins fijos 1.0–1.9, 2.0–2.9, …, 6.0–7.0
+  function buildNoteBins(values /* notas en [1,7] */) {
+    const bins = [
+      { from: 1.0, to: 2.0, bin: '1.0–1.9', count: 0 },
+      { from: 2.0, to: 3.0, bin: '2.0–2.9', count: 0 },
+      { from: 3.0, to: 4.0, bin: '3.0–3.9', count: 0 },
+      { from: 4.0, to: 5.0, bin: '4.0–4.9', count: 0 },
+      { from: 5.0, to: 6.0, bin: '5.0–5.9', count: 0 },
+      { from: 6.0, to: 7.1, bin: '6.0–7.0', count: 0 } // 7.0 cae aquí
+    ];
+    for (const v of values) {
+      for (const b of bins) {
+        if (v >= b.from && v < b.to) { b.count++; break; }
       }
-      const puntajes = r2.map(x => Number(x.puntaje)).filter(Number.isFinite);
+    }
+    return bins;
+  }
 
-      // Si tu escala es 1–7, el front puede llamar con ?min=1&max=7&step=0.5
-      const min = Number(req.query.min ?? 0);
-      const max = Number(req.query.max ?? 100);
-      const step = Number(req.query.step ?? 5);
-      const distribucion = buildBins(puntajes, { min, max, step });
+  db.query(sqlNumPreguntas, [ensayoId], (e0, r0) => {
+    if (e0) return res.status(500).json({ error: 'Error al contar preguntas' });
+    const nPreg = Number(r0?.[0]?.nPreg || 1);
 
-      db.query(sqlPreguntas, [ensayoId], (e3, r3) => {
-        if (e3) {
-          console.error('Error preguntas:', e3);
-          return res.status(500).json({ error: 'Error al obtener preguntas' });
-        }
-        const preguntas = r3.map(row => {
-          const total = Number(row.total || 0);
-          const corr  = Number(row.correctas || 0);
-          const inc   = Number(row.incorrectas || 0);
-          const tasa  = total > 0 ? (100 * corr / total) : 0;
-          return {
-            pregunta_id: Number(row.pregunta_id),
-            enunciado: row.enunciado,
-            correctas: corr,
-            incorrectas: inc,
-            total: total,
-            tasa_correctas: +tasa.toFixed(1)
-          };
-        });
+    db.query(sqlResumen, [ensayoId], (e1, r1) => {
+      if (e1) return res.status(500).json({ error: 'Error al obtener resumen' });
+      const row = r1?.[0] || {};
+      const n = Number(row.n || 0);
+      const promAciertos = Number(row.prom_aciertos || 0);
+      const minAciertos  = Number(row.min_aciertos  || 0);
+      const maxAciertos  = Number(row.max_aciertos  || 0);
+      const desvAciertos = Number(row.desv_aciertos || 0);
 
-        res.json({
-          resumen: {
-            n: Number(resumen.n || 0),
-            promedio: resumen.promedio != null ? Number(resumen.promedio) : null,
-            min: resumen.min != null ? Number(resumen.min) : null,
-            max: resumen.max != null ? Number(resumen.max) : null,
-            desv: resumen.desv != null ? Number(resumen.desv) : null
-          },
-          distribucion,   // [{bin, count}]
-          preguntas       // [{pregunta_id, enunciado, correctas, incorrectas, total, tasa_correctas}]
+      // Conversión aciertos → nota
+      const toNota = (ac) => 1 + 6 * (ac / Math.max(nPreg, 1));
+
+      const resumenNotas = {
+        n,
+        promedio: n > 0 ? +toNota(promAciertos).toFixed(1) : null,
+        min: n > 0 ? +toNota(minAciertos).toFixed(1) : null,
+        max: n > 0 ? +toNota(maxAciertos).toFixed(1) : null,
+        desv: n > 0 ? +((desvAciertos * 6) / Math.max(nPreg, 1)).toFixed(1) : null
+      };
+
+      db.query(sqlPuntajes, [ensayoId], (e2, r2) => {
+        if (e2) return res.status(500).json({ error: 'Error al obtener puntajes' });
+        const aciertos = r2.map(x => Number(x.puntaje)).filter(Number.isFinite);
+        const notas = aciertos.map(toNota);
+        const distribucion = buildNoteBins(notas);
+
+        db.query(sqlPreguntas, [ensayoId], (e3, r3) => {
+          if (e3) return res.status(500).json({ error: 'Error al obtener preguntas' });
+
+          const preguntas = r3.map(row => {
+            const total = Number(row.total || 0);
+            const corr  = Number(row.correctas || 0);
+            const inc   = Number(row.incorrectas || 0);
+            const tasa  = total > 0 ? (100 * corr / total) : 0;
+            return {
+              pregunta_id: Number(row.pregunta_id),
+              enunciado: row.enunciado,
+              correctas: corr,
+              incorrectas: inc,
+              total,
+              tasa_correctas: +tasa.toFixed(1)
+            };
+          });
+
+          res.json({
+            resumen: resumenNotas, // ← ahora en NOTA 1–7
+            distribucion,          // ← bins fijos 1.0–1.9 ... 6.0–7.0
+            preguntas,
+            nPreg
+          });
         });
       });
     });
   });
 });
+
+app.get('/api/ensayos/:id/historico', (req, res) => {
+  const ensayoId = req.params.id;
+  const sql = `
+    SELECT DATE_FORMAT(r.fecha, '%Y-%m-%d') AS fecha,
+           ROUND(AVG(r.puntaje),1) AS promedio
+    FROM BD09_RESPUESTASESTUDIANTES.Resultado r
+    WHERE r.id_ensayo = ?
+    GROUP BY fecha
+    ORDER BY fecha ASC;
+  `;
+  db.query(sql, [ensayoId], (err, rows) => {
+    if (err) return res.status(500).json({ error: 'Error al obtener histórico' });
+    res.json(rows);
+  });
+});
+
 
 // ------------------------ Arranque ------------------------
 app.listen(PORT, () => {
