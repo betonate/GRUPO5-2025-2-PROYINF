@@ -43,5 +43,7 @@ export const api = {
   // Administración
   getAllUserDetails: () => axios.get(`${API_USUARIOS}/admin/all-user-details`, authHeaders()),
   createUser: (userData) => axios.post(`${API_USUARIOS}/usuarios`, userData, authHeaders()),
-  getEstadisticasGenerales: () => axios.get(`${API_RESPUESTAS}/estadisticas-generales`, authHeaders())
+  getUsuarios: () => axios.get(`${API_USUARIOS}/usuarios`,authHeaders()),
+  getEstadisticasGenerales: () => axios.get(`${API_RESPUESTAS}/estadisticas-generales`, authHeaders()),
+  setMateriaUsuario: (materiaData) => axios.post(`${API_USUARIOS}/usuarios/materias`, materiaData,authHeaders())
 };

@@ -30,6 +30,7 @@ import EstudianteForoDetallePage from './pages/Estudiante/Foro/EstudianteForoDet
 // Admin
 import UserDashboardPage from './pages/Admin/UserDashboardPage';
 import CreateUserPage from './pages/Admin/CreateUserPage';
+import AsignarMateria from './pages/Admin/AsignarMateria';
 
 // Directivo
 import DirectivoDashboardPage from './pages/Analyst/DirectivoDashboardPage';
@@ -91,6 +92,7 @@ function App() {
           {/* Público / pruebas */}
           <Route path="/admin/dashboard" element={<UserDashboardPage />} />
           <Route path="/admin/create-user" element={<CreateUserPage />} />
+	  <Route path="/admin/asignar-materia" element={<AsignarMateria />} />
 
           {/* General */}
           <Route path="/unauthorized" element={<h2>No tienes permiso para ver esta página.</h2>} />

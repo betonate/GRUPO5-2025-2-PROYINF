@@ -18,6 +18,8 @@ const SeleccionarMateria = () => {
                 const userData = jwtDecode(token);
                 const response = await api.getMateriasByDocente(userData.id);
                 
+		console.log("Testiando: " + response);
+
                 if (response.data.length === 1) {
                     // Si solo hay una materia, redirigir automáticamente
                     navigate(`/docente/${target}/${response.data[0].id_materia}`);
@@ -44,16 +46,17 @@ const SeleccionarMateria = () => {
 
     return (
         <div className="container-seleccionar-materia">
-            <div className="select-materia-box">
+	    <div className="select-materia-box">
                 Seleccione una Materia
             </div>
+
             {materias.map(materia => (
                 <button key={materia.id_materia} onClick={() => navigate(`/docente/${target}/${materia.id_materia}`)}>
                     {materia.nombre_display}
                 </button>
             ))}
             <button  className="volver-button" onClick={() => navigate('/docente')}>Volver</button>
-        </div>
+       </div>
     );
 };
 

@@ -41,7 +41,10 @@ const UserDashboardPage = () => {
             <button onClick={() => navigate('/admin/create-user')}>Crear Nuevo Usuario</button>
             <hr style={{ margin: '20px 0' }}/>
             {users.map(user => (
-                <UserCard key={user.id_usuario} user={user} />
+		<div key={user.id_usuario}>
+                	<UserCard key={user.id_usuario} user={user} />
+	        	<button onClick={() => navigate('/admin/asignar-materia')}>Asignar materia</button>
+		</div>
             ))}
         </div>
     );
