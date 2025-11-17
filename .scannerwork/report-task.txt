@@ -1,0 +1,6 @@
+projectKey=proyectoSonarQubeParaHito5
+serverUrl=http://localhost:9000
+serverVersion=25.11.0.114957
+dashboardUrl=http://localhost:9000/dashboard?id=proyectoSonarQubeParaHito5
+ceTaskId=7fc13f1c-023b-4abf-a7c9-0c63b0617077
+ceTaskUrl=http://localhost:9000/api/ce/task?id=7fc13f1c-023b-4abf-a7c9-0c63b0617077
