@@ -3,3 +3,8 @@ Sin embargo ahora se prensenta nuevos problemas, quality Date da
 false, es decir que el proyecto no esta listo para la producción ahora, debído que hay una nueva issue, que tiene que ver con SonarQuebe,
 ese sobre el mal uso que se le da al token de SonarQube al estar expuesto
 siendo una vulnerabilidad grave.
+
+El tiempo empleado en la solución de las issues, no fue grande, ya que como
+lo indica SonarQube, solo se agregar unas pocas línas, recorando de las
+issues tratadas eran en un mismo código, y se solucionaban ambas
+un sistema de tipado seguro.
