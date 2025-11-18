@@ -1,5 +1,29 @@
-Para el caso de la creación de los ensayos, observamos que gran parte de los resultados alcanzan lo esperado, puesto a que muchos de ellos logran tener un tiempo de respuesta inferior a 1 segundo (Que es lo establecido para determinar la eficiencia de la API en este aspecto) a la vez que existen casos donde se acercan a las 1.5 segundos, sobre todo acercándose al final de tiempo transcurrido, por lo que nos puede indicar que una posible sobrecarga podría influir en que existan estos casos.
+La configuracion de los grupos de hilos fue dispuest de la siguiente forma:
+Creacion de preguntas:
+-N° de hilos: 200
+-Periodo de subida: 30 segundos
+-Contador de bucle: 1
 
-En cuanto a la creación de usuarios, ocurre algo parecido al caso anterior, con la diferencia que hay algunos intervalos de tiempo en donde se supera el segundo de tiempo de respuesta máximo esperado, mas precisamente al inicio y a la mitad, pero en general se tratan de casos puntuales y en general se logran los resultados de respuesta esperados.
+Creacion de usuarios:
+-N° de hilos: 150
+-Periodo de subida: 30 segundos
+-Contador de bucle: 1
 
-Finalmente para la creación de preguntas observamos que se logra obtener tiempos de respuesta en medio de una "sobrecarga" inferiores al segundo, por lo que la API responde excelente ante esta situación logrando una estabilidad de respuestas sin que se llegue al punto que algunos casos sobrepasen el tiempo de respuesta máximo esperado (1 segundo) por lo que también se logra el resultado esperado.
+Creacion de ensayos:
+-N° de hilos: 150
+-Periodo de subida: 30 segundos
+-Contador de bucle: 1
+
+Comentarios sobre las decisiones: Los endponits a atender se eligieron debido a que consideramos que van a ser los que más interaccion y peticiones van a recibir en la practica (Y en tiempo real), y considerando la posible demanda en circunstancias normales decidimos definar la cantidad de hilos y periodo de subida observados más arriba que son el margen de demanda y "sobrecarga" posible de la pagina. En general, pensamos que estas pruebas hechas en Jmeter atienden a lo que vendrian ser los endpoints más "afectados" a la hora de hacer funcionar la pagina.
+
+Para el caso de la creación de los ensayos, observamos que gran parte de los resultados alcanzan lo esperado, puesto a que muchos de ellos logran tener un tiempo de respuesta inferior a 1 
+segundo (Que es lo establecido para determinar la eficiencia de la API en este aspecto) a la vez que existen casos donde se acercan a las 1.5 segundos, sobre todo acercándose al final de 
+tiempo transcurrido, por lo que nos puede indicar que una posible sobrecarga podría influir en que existan estos casos.
+
+En cuanto a la creación de usuarios, ocurre algo parecido al caso anterior, con la diferencia que hay algunos intervalos de tiempo en donde se supera el segundo de tiempo de respuesta máximo 
+esperado, mas precisamente al inicio y a la mitad, pero en general se tratan de casos puntuales y en general se logran los resultados de respuesta esperados.
+
+
+Finalmente para la creación de preguntas observamos que se logra obtener tiempos de respuesta en medio de una "sobrecarga" inferiores al segundo, por lo que la API responde excelente ante 
+esta situación logrando una estabilidad de respuestas sin que se llegue al punto que algunos casos sobrepasen el tiempo de respuesta máximo esperado (1 segundo) por lo que también se logra 
+el resultado esperado.
