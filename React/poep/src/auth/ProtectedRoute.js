@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import PropTypes from 'prop-types';
 
 const ProtectedRoute = ({ roles }) => {
     const token = localStorage.getItem('token');
@@ -24,6 +25,16 @@ const ProtectedRoute = ({ roles }) => {
     
     // Si todo está bien, muestra el contenido de la ruta protegida
     return <Outlet />;
+};
+
+// --- Validación de tipos de props ---
+ProtectedRoute.propTypes = {
+    roles: PropTypes.arrayOf(PropTypes.string)  // roles debe ser un arreglo de strings
+};
+
+//valor por defecto
+ProtectedRoute.defaultProps = {
+    roles: null
 };
 
 export default ProtectedRoute;
